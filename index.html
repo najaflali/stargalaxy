@@ -3,135 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarGalaxy</title>
+    <title>StarGalaxy Tasks</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #fff;
             background-color: #121212;
+            color: #fff;
             text-align: center;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            background-color: #232d4b;
             padding: 20px;
-            font-size: 2em;
-            color: white;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav {
-            margin: 20px 0;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        nav a:hover {
-            color: #ff6600;
-        }
-
-        section {
-            padding: 60px 20px;
-        }
-
-        #home {
-            background-color: #121212;
-        }
-
-        #earn {
-            background-color: #1e1e1e;
-        }
-
-        #about {
-            background-color: #232d4b;
         }
 
         h2 {
-            font-size: 2.5em;
-            color: #fff;
             margin-bottom: 20px;
         }
 
-        p {
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
             font-size: 1.2em;
-            color: #fff;
-            margin-bottom: 40px;
         }
 
-        .button {
+        button {
             background-color: #ff3e00;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.5em;
             border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #ff6600;
-        }
-
-        footer {
-            background-color: #232d4b;
-            padding: 15px;
             color: white;
-            position: relative;
-            bottom: 0;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff6600;
         }
     </style>
 </head>
 <body>
+    <h2>Complete a Task</h2>
+    <form id="taskForm">
+        <input type="text" id="userName" placeholder="Enter your name" required>
+        <input type="text" id="taskName" placeholder="Enter task name" required>
+        <button type="submit">Submit Task</button>
+    </form>
+    <p id="responseMessage"></p>
 
-    <!-- Header Section -->
-    <header>
-        StarGalaxy
-    </header>
+    <script>
+        const form = document.getElementById('taskForm');
+        const responseMessage = document.getElementById('responseMessage');
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#earn">Earn & Advertise</a>
-        <a href="#about">About Us</a>
-    </nav>
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    <!-- Home Section -->
-    <section id="home">
-        <h2>Welcome to StarGalaxy</h2>
-        <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
-        <button class="button" onclick="location.href='#earn';">Get Started</button>
-    </section>
+            const userName = document.getElementById('userName').value;
+            const taskName = document.getElementById('taskName').value;
 
-    <!-- Earn & Advertise Section -->
-    <section id="earn">
-        <h2>Earn & Advertise</h2>
-        <p>Discover how you can earn rewards by completing tasks or advertising your content for better reach.</p>
-    </section>
+            // Replace with your Google Apps Script Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbynd77HE2jgfAbR_LxAIbH0yXoLExkuHbBmt7ZXTcAizZpShTBTp_J3h4Jb4PpDPd9tvA/exec';
 
-    <!-- About Us Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>StarGalaxy is a platform designed to empower users through innovative rewards and advertising opportunities.</p>
-    </section>
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify({ userName, taskName }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
 
-    <!-- Footer Section -->
-    <footer>
-        &copy; 2024 StarGalaxy. All rights reserved.
-    </footer>
-
+                if (response.ok) {
+                    responseMessage.textContent = 'Task submitted successfully!';
+                    responseMessage.style.color = 'green';
+                } else {
+                    responseMessage.textContent = 'Error submitting task.';
+                    responseMessage.style.color = 'red';
+                }
+            } catch (error) {
+                responseMessage.textContent = 'Network error. Please try again.';
+                responseMessage.style.color = 'red';
+            }
+        });
+    </script>
 </body>
 </html>
+
 
 
