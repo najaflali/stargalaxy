@@ -21,21 +21,23 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
         /* Header style */
         header {
-            background: linear-gradient(135deg, #1e2a47, #232d4b);
+            background: #232d4b;
             width: 100%;
             padding: 20px 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        /* StarGalaxy title centered */
         header h1 {
-            margin: 0;
             font-size: 3.5em;
             color: #fff;
             font-weight: 700;
@@ -44,9 +46,9 @@
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Navigation bar style */
+        /* Navigation bar in the middle */
         nav {
-            margin-top: 20px;
+            text-align: center;
         }
 
         nav a {
@@ -59,8 +61,6 @@
 
         nav a:hover {
             color: #00b8d4;
-            transform: scale(1.1);
-            transition: 0.3s;
         }
 
         /* Main content style */
@@ -70,7 +70,6 @@
             margin-top: 30px;
             width: 100%;
             max-width: 800px;
-            transition: all 0.5s ease-in-out;
         }
 
         h2 {
@@ -87,20 +86,20 @@
 
         /* Button style */
         .button {
-            background: linear-gradient(90deg, #00b8d4, #1e2a47);
+            background-color: #ff3e00; /* Red button */
             color: #fff;
-            padding: 15px 40px;
+            padding: 20px 40px;
             font-size: 1.5em;
             font-weight: 700;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         .button:hover {
-            background: linear-gradient(90deg, #1e2a47, #00b8d4);
+            background-color: #ff6600;
         }
 
         /* Footer style */
@@ -108,27 +107,10 @@
             width: 100%;
             text-align: center;
             padding: 25px;
-            background-color: #1e2a47;
+            background-color: #232d4b;
             color: #fff;
             position: fixed;
             bottom: 0;
-            left: 0;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 2.5em;
-            }
-
-            p {
-                font-size: 1.2em;
-            }
-
-            .button {
-                padding: 10px 30px;
-                font-size: 1.2em;
-            }
         }
     </style>
 </head>
@@ -139,17 +121,20 @@
         <!-- Header Section -->
         <header>
             <h1>StarGalaxy</h1>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">Earn & Advertise</a>
-                <a href="#">About Us</a>
-            </nav>
         </header>
+
+        <!-- Navigation Bar -->
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Earn & Advertise</a>
+            <a href="#">About Us</a>
+        </nav>
 
         <!-- Main Section -->
         <main>
             <h2>Welcome to StarGalaxy</h2>
             <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
+            <!-- Start Button -->
             <button class="button">Get Started</button>
         </main>
 
@@ -162,7 +147,3 @@
 
 </body>
 </html>
-
-
-
-
