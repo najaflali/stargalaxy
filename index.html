@@ -7,87 +7,77 @@
     <style>
         /* General page style */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #fff;
             background-color: #121212;
-            line-height: 1.6;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* Full-page container */
+        /* Container for the whole page */
         .container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            justify-content: space-between;
+            min-height: 100vh;
+            justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
-        /* Header style */
+        /* Header section style */
         header {
             background: linear-gradient(135deg, #1e2a47, #232d4b);
             width: 100%;
             padding: 20px 0;
-            text-align: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 3.5em;
             color: #fff;
+            font-size: 3.5em;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        /* Navigation bar style */
         nav {
             margin-top: 20px;
         }
 
         nav a {
             color: #fff;
-            margin: 0 25px;
             text-decoration: none;
+            margin: 0 15px;
             font-size: 1.2em;
-            letter-spacing: 1px;
         }
 
         nav a:hover {
             color: #00b8d4;
-            transform: scale(1.1);
-            transition: 0.3s;
         }
 
         /* Main content style */
         main {
-            text-align: center;
+            margin-top: 150px;
             padding: 60px;
-            margin-top: 30px;
-            width: 100%;
             max-width: 800px;
-            transition: all 0.5s ease-in-out;
         }
 
         h2 {
             font-size: 3em;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             margin-bottom: 40px;
-            line-height: 1.6;
         }
 
-        /* Button style with Red and Navy Green color options */
         .button {
-            background-color: #e53935; /* Red color */
+            background-color: #e53935; /* Default red color */
             color: #fff;
             padding: 20px 40px;
             font-size: 1.5em;
@@ -95,33 +85,24 @@
             border: none;
             border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(229, 57, 53, 0.4);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.3);
             transition: all 0.3s ease-in-out;
-            text-transform: uppercase;
-            margin-top: 20px;
-            display: inline-block; /* Ensure the button is displayed as a block element */
         }
 
         .button:hover {
-            background-color: #d32f2f; /* Darker red on hover */
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(229, 57, 53, 0.5);
+            background-color: #d32f2f; /* Darker red color on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229, 57, 53, 0.5);
         }
 
-        .button:focus {
-            outline: none;
-        }
-
-        /* Footer style */
         footer {
             width: 100%;
-            text-align: center;
-            padding: 25px;
             background-color: #1e2a47;
             color: #fff;
+            text-align: center;
+            padding: 20px;
             position: fixed;
             bottom: 0;
-            left: 0;
         }
 
         /* Mobile responsiveness */
@@ -131,42 +112,40 @@
             }
 
             p {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
 
             .button {
-                font-size: 1.3em;
                 padding: 15px 30px;
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <h1>StarGalaxy</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Earn & Advertise</a>
+            <a href="#">About Us</a>
+        </nav>
+    </header>
+
     <div class="container">
-
-        <!-- Header Section -->
-        <header>
-            <h1>StarGalaxy</h1>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">Earn & Advertise</a>
-                <a href="#">About Us</a>
-            </nav>
-        </header>
-
-        <!-- Main Section with Welcome Message and Button -->
         <main>
             <h2>Welcome to StarGalaxy</h2>
             <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
             <button class="button">Get Started</button>
         </main>
-
-        <!-- Footer Section -->
         <footer>
             <p>&copy; 2024 StarGalaxy. All rights reserved.</p>
         </footer>
-
     </div>
 
 </body>
