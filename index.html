@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarGalaxy</title>
     <style>
-        /* General page style */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,9 +12,9 @@
             color: #fff;
             background-color: #121212;
             text-align: center;
+            scroll-behavior: smooth;
         }
 
-        /* Header style */
         header {
             background-color: #232d4b;
             padding: 20px;
@@ -25,7 +24,6 @@
             text-transform: uppercase;
         }
 
-        /* Navigation menu */
         nav {
             margin: 20px 0;
         }
@@ -41,9 +39,20 @@
             color: #ff6600;
         }
 
-        /* Main content */
-        main {
-            margin-top: 50px;
+        section {
+            padding: 60px 20px;
+        }
+
+        #home {
+            background-color: #121212;
+        }
+
+        #earn {
+            background-color: #1e1e1e;
+        }
+
+        #about {
+            background-color: #232d4b;
         }
 
         h2 {
@@ -58,7 +67,6 @@
             margin-bottom: 40px;
         }
 
-        /* Button style */
         .button {
             background-color: #ff3e00;
             color: white;
@@ -76,13 +84,11 @@
             background-color: #ff6600;
         }
 
-        /* Footer */
         footer {
             background-color: #232d4b;
             padding: 15px;
             color: white;
-            position: absolute;
-            width: 100%;
+            position: relative;
             bottom: 0;
         }
     </style>
@@ -96,18 +102,29 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Earn & Advertise</a>
-        <a href="#">About Us</a>
+        <a href="#home">Home</a>
+        <a href="#earn">Earn & Advertise</a>
+        <a href="#about">About Us</a>
     </nav>
 
-    <!-- Main Section -->
-    <main>
+    <!-- Home Section -->
+    <section id="home">
         <h2>Welcome to StarGalaxy</h2>
         <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
-        <!-- Start Button -->
-        <button class="button">Get Started</button>
-    </main>
+        <button class="button" onclick="location.href='#earn';">Get Started</button>
+    </section>
+
+    <!-- Earn & Advertise Section -->
+    <section id="earn">
+        <h2>Earn & Advertise</h2>
+        <p>Discover how you can earn rewards by completing tasks or advertising your content for better reach.</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>StarGalaxy is a platform designed to empower users through innovative rewards and advertising opportunities.</p>
+    </section>
 
     <!-- Footer Section -->
     <footer>
@@ -116,4 +133,5 @@
 
 </body>
 </html>
+
 
