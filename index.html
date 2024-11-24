@@ -7,88 +7,136 @@
     <style>
         /* General page style */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: #fff;
-            background-color: #0d1117;
+            background-color: #121212;
+            line-height: 1.6;
+        }
+
+        /* Full-page container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+            align-items: center;
         }
 
         /* Header style */
         header {
-            background-color: #1d1f27;
-            padding: 20px;
+            background: linear-gradient(135deg, #1e2a47, #232d4b);
+            width: 100%;
+            padding: 20px 0;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            color: #f1f1f1;
+            font-size: 3em;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         /* Navigation bar style */
         nav {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         nav a {
-            color: #ffffff;
-            margin: 0 15px;
+            color: #fff;
+            margin: 0 20px;
             text-decoration: none;
             font-size: 1.1em;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
             color: #00b8d4;
+            transform: scale(1.1);
+            transition: 0.3s;
         }
 
-        /* Main section style */
+        /* Main content style */
         main {
             text-align: center;
             padding: 50px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 800px;
+            transition: all 0.5s ease-in-out;
         }
 
         h2 {
-            font-size: 2em;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         /* Button style */
         .button {
             background-color: #00b8d4;
-            color: white;
+            color: #fff;
             padding: 15px 30px;
             font-size: 1.2em;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .button:hover {
             background-color: #0288d1;
+            transform: translateY(-3px);
         }
 
+        /* Footer style */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #1e2a47;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <h1>StarGalaxy</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Earn & Advertise</a>
-            <a href="#">About Us</a>
-        </nav>
-    </header>
+    <div class="container">
 
-    <!-- Main Section with Welcome Message and Button -->
-    <main>
-        <h2>Welcome to StarGalaxy</h2>
-        <p>Your ultimate platform for earning rewards and advertising.</p>
-        <!-- Button that can link to another page or action -->
-        <button class="button">Get Started</button>
-    </main>
+        <!-- Header Section -->
+        <header>
+            <h1>StarGalaxy</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Earn & Advertise</a>
+                <a href="#">About Us</a>
+            </nav>
+        </header>
+
+        <!-- Main Section with Welcome Message and Button -->
+        <main>
+            <h2>Welcome to StarGalaxy</h2>
+            <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
+            <button class="button">Get Started</button>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 StarGalaxy. All rights reserved.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
