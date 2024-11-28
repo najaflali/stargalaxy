@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: radial-gradient(circle, #1E212D, #0A0A0A);
+      background: radial-gradient(circle, #0F2027, #203A43, #2C5364);
       color: #EAEAEA;
       overflow-x: hidden;
     }
@@ -32,79 +32,111 @@
       font-size: 18px;
       padding: 10px 20px;
       margin: 0 10px;
-      background: linear-gradient(45deg, #4B1248, #F0C27B);
+      background: linear-gradient(45deg, #6A11CB, #2575FC);
       border-radius: 5px;
       transition: transform 0.3s, background 0.3s;
     }
 
     nav a:hover {
       transform: scale(1.1);
-      background: linear-gradient(45deg, #E6A967, #F0C27B);
+      background: linear-gradient(45deg, #43E97B, #38F9D7);
     }
 
-    /* Main Content */
-    .content {
+    /* Main Section */
+    .main-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding-top: 120px;
+      padding: 20px;
     }
 
-    h1 {
+    .main-section h1 {
       font-size: 3.5em;
       color: #F0C27B;
       text-shadow: 2px 2px 10px rgba(240, 194, 123, 0.7);
     }
 
-    p {
-      font-size: 1.3em;
+    .main-section p {
+      font-size: 1.2em;
       margin: 20px auto;
       max-width: 600px;
       line-height: 1.8;
-      color: #E6E6E6;
+      color: #EAEAEA;
       text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
     }
 
-    /* Light Animations */
-    .animation-container {
+    /* Get Started Button */
+    .get-started-btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      background: linear-gradient(45deg, #1D2671, #C33764);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .get-started-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #8E44AD, #3498DB);
+    }
+
+    /* Footer */
+    footer {
       position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #EAEAEA;
+      text-decoration: none;
+    }
+
+    /* Animation */
+    .animation-area {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
       z-index: -1;
     }
 
-    .coin {
+    .animation-area span {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      background: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=025') no-repeat center;
-      background-size: cover;
-      animation: float 6s ease-in-out infinite;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png') no-repeat center center / contain;
+      animation: animate 25s linear infinite;
     }
 
-    @keyframes float {
+    .animation-area span:nth-child(2) {
+      animation-delay: 5s;
+      top: 10%;
+      left: 30%;
+    }
+
+    @keyframes animate {
       0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
-      }
-      50% {
-        transform: translateY(-50px);
-        opacity: 0.7;
       }
       100% {
-        transform: translateY(0);
-        opacity: 1;
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
       }
-    }
-
-    /* Custom Animations for Coins */
-    .coin.alt {
-      background: url('https://cryptologos.cc/logos/ethereum-eth-logo.png?v=025') no-repeat center;
-      background-size: cover;
-    }
-
-    .coin.special {
-      background: url('https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=025') no-repeat center;
-      background-size: cover;
     }
   </style>
 </head>
@@ -116,22 +148,29 @@
     <a href="advertise.html">Advertise</a>
   </nav>
 
-  <!-- Main Content -->
-  <div class="content">
+  <!-- Main Section -->
+  <div class="main-section">
     <h1>Welcome to StarGalaxy</h1>
-    <p>Discover the ultimate platform to earn rewards and advertise your content globally. Explore and grow with StarGalaxy!</p>
+    <p>The ultimate platform to earn cryptocurrency rewards and promote your content effectively.</p>
+    <button class="get-started-btn" onclick="window.location.href='earn.html';">Get Started</button>
   </div>
 
-  <!-- Cryptocurrency Animations -->
-  <div class="animation-container">
-    <div class="coin" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="coin alt" style="top: 30%; left: 60%; animation-delay: 2s;"></div>
-    <div class="coin special" style="top: 70%; left: 30%; animation-delay: 4s;"></div>
-    <div class="coin" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
-    <div class="coin alt" style="top: 50%; left: 10%; animation-delay: 3s;"></div>
+  <!-- Animation -->
+  <div class="animation-area">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2024 StarGalaxy. All rights reserved. | <a href="#">Privacy Policy</a>
+  </footer>
 </body>
 </html>
+
 
 
 
