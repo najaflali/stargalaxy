@@ -3,207 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarGalaxy - Earn and Advertise</title>
+  <title>Submit Campaign</title>
   <style>
-    /* Global Styles */
     body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #1e1e2f, #151515);
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* Falling Cryptocurrency Animation */
-    .crypto-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 10; /* Bring animations to the front */
-    }
-
-    .crypto-icon {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      animation: fall 6s linear infinite, sway 4s ease-in-out infinite alternate;
-    }
-
-    /* Falling Animation */
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px);
-      }
-      100% {
-        transform: translateY(110vh);
-      }
-    }
-
-    /* Sway Animation */
-    @keyframes sway {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(40px);
-      }
-    }
-
-    /* Header and Navigation */
-    header {
-      background: rgba(0, 0, 0, 0.8);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      margin: 0 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #EAEAEA;
-      font-size: 18px;
-      padding: 10px 20px;
-      background: linear-gradient(45deg, #F0C27B, #4B1248);
-      border-radius: 30px;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    nav ul li a:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #E6A967, #F0C27B);
-    }
-
-    /* Sections */
-    section {
-      padding: 100px 20px;
+      font-family: Arial, sans-serif;
+      background-color: #282c34;
+      color: white;
       text-align: center;
-      margin-top: 80px;
+      padding: 20px;
     }
-
-    section h2 {
-      font-size: 2.5em;
-      color: #F0C27B;
-    }
-
-    section p {
-      font-size: 1.2em;
-      color: #dcdcdc;
-    }
-
-    /* Forms Styling */
     form {
-      max-width: 600px;
-      margin: 0 auto;
+      background: #444;
       padding: 20px;
       border-radius: 10px;
-      background: #2B2B2B;
+      display: inline-block;
+      width: 300px;
     }
-
     label {
       display: block;
-      color: #F0C27B;
-      font-size: 1.1em;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
     }
-
     input, select, button {
       width: 100%;
-      padding: 10px;
       margin-bottom: 15px;
-      border: 1px solid #F0C27B;
+      padding: 10px;
       border-radius: 5px;
-      background: #1f1f1f;
-      color: #EAEAEA;
+      border: none;
+      font-size: 16px;
     }
-
     button {
-      background: linear-gradient(45deg, #F0C27B, #4B1248);
+      background-color: #4caf50;
       color: white;
+      font-weight: bold;
       cursor: pointer;
-      transition: transform 0.3s, background 0.3s;
     }
-
     button:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #E6A967, #F0C27B);
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <!-- Falling Cryptocurrency Icons -->
-  <div class="crypto-container">
-    <img src="https://img.icons8.com/color/96/bitcoin--v1.png" class="crypto-icon" style="left: 10%; animation-delay: 0s;">
-    <img src="https://img.icons8.com/color/96/ethereum.png" class="crypto-icon" style="left: 30%; animation-delay: 1s;">
-    <img src="https://img.icons8.com/color/96/litecoin.png" class="crypto-icon" style="left: 50%; animation-delay: 2s;">
-    <img src="https://img.icons8.com/color/96/binance-coin.png" class="crypto-icon" style="left: 70%; animation-delay: 0.5s;">
-    <img src="https://img.icons8.com/color/96/dogecoin.png" class="crypto-icon" style="left: 90%; animation-delay: 1.5s;">
-  </div>
+  <h1>Submit Your Campaign</h1>
+  <form id="campaignForm">
+    <label for="campaign-url">Campaign URL:</label>
+    <input type="url" id="campaign-url" name="campaign-url" placeholder="Enter your campaign URL" required>
 
-  <!-- Header -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#earn">Earn</a></li>
-        <li><a href="#advertise">Advertise</a></li>
-        <li><a href="#tasks">Submit Tasks</a></li>
-      </ul>
-    </nav>
-  </header>
+    <label for="amount">Deposit Amount (USD):</label>
+    <input type="number" id="amount" name="amount" placeholder="Enter deposit amount" required>
 
-  <!-- Sections -->
-  <section id="home">
-    <h2>Welcome to StarGalaxy</h2>
-    <p>Your ultimate platform for earning and advertising.</p>
-  </section>
+    <label for="ad-type">Ad Type:</label>
+    <select id="ad-type" name="ad-type" required>
+      <option value="youtube">YouTube</option>
+      <option value="website">Website</option>
+      <option value="social">Social Media</option>
+    </select>
 
-  <section id="earn">
-    <h2>Earn Rewards</h2>
-    <p>Complete tasks and earn exciting rewards.</p>
-  </section>
+    <button type="submit">Submit Campaign</button>
+  </form>
 
-  <section id="advertise">
-    <h2>Submit Your Ad Campaign</h2>
-    <form action="https://script.google.com/macros/s/AKfycbweMKuJILLjIu1qvV3SPqM4gPFMG_BOLzjoeb3Rah_2h_ON52dqAwYvMaDKMO4sNO0HfA/exec" method="POST">
-      <label for="campaign-url">Campaign URL:</label>
-      <input type="url" id="campaign-url" name="campaign-url" placeholder="Enter the URL of your content" required>
+  <script>
+    document.getElementById('campaignForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-      <label for="amount">Deposit Amount (USD):</label>
-      <input type="number" id="amount" name="amount" min="1" required>
+      const form = e.target;
+      const formData = new FormData(form);
 
-      <label for="ad-type">Ad Type:</label>
-      <select id="ad-type" name="ad-type" required>
-        <option value="youtube">YouTube</option>
-        <option value="website">Website</option>
-        <option value="social">Social Media</option>
-      </select>
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
 
-      <button type="submit">Submit Campaign</button>
-    </form>
-  </section>
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbzVWwcqnd2kDejFi9ov8ojlITvoBuUQmCTeYNCupT_UGqdkL_U-b17Rzb6AeJiCjEW0/exec", {
+          method: "POST",
+          body: new URLSearchParams(data)
+        });
 
-  <section id="tasks">
-    <h2>Submit Your Tasks</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfo5k4MuovhV00ANf0yVPAeJzB15h7Er-YgRbtK6RhvrgSFXw/viewform?embedded=true"></iframe>
-  </section>
+        const result = await response.json();
+        if (result.status === "success") {
+          alert(result.message);
+          form.reset();
+        } else {
+          alert("Error: " + result.message);
+        }
+      } catch (error) {
+        alert("Failed to submit the form: " + error.message);
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
