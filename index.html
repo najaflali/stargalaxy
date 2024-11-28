@@ -9,8 +9,8 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: radial-gradient(circle, #1E212D, #0A0A0A);
-      color: #EAEAEA;
+      background: linear-gradient(to bottom, #1e1e2f, #151515);
+      color: #ffffff;
       overflow-x: hidden;
     }
 
@@ -22,17 +22,17 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: -1;
+      z-index: 10; /* Bring animations to the front */
     }
 
     .crypto-icon {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      animation: fall 7s linear infinite, sway 3s ease-in-out infinite alternate;
+      width: 60px;
+      height: 60px;
+      animation: fall 6s linear infinite, sway 4s ease-in-out infinite alternate;
     }
 
-    /* Falling Animation Keyframes */
+    /* Falling Animation */
     @keyframes fall {
       0% {
         transform: translateY(-100px);
@@ -42,13 +42,13 @@
       }
     }
 
-    /* Sway Animation for Left-Right Motion */
+    /* Sway Animation */
     @keyframes sway {
       0% {
         transform: translateX(0);
       }
       100% {
-        transform: translateX(30px);
+        transform: translateX(40px);
       }
     }
 
@@ -108,7 +108,7 @@
     /* Forms Styling */
     form {
       max-width: 600px;
-      margin: 20px auto;
+      margin: 0 auto;
       padding: 20px;
       border-radius: 10px;
       background: #2B2B2B;
@@ -147,11 +147,11 @@
 <body>
   <!-- Falling Cryptocurrency Icons -->
   <div class="crypto-container">
-    <img src="https://img.icons8.com/color/48/bitcoin--v1.png" class="crypto-icon" style="left: 10%; animation-delay: 0s;">
-    <img src="https://img.icons8.com/color/48/ethereum.png" class="crypto-icon" style="left: 30%; animation-delay: 1s;">
-    <img src="https://img.icons8.com/color/48/litecoin.png" class="crypto-icon" style="left: 50%; animation-delay: 2s;">
-    <img src="https://img.icons8.com/color/48/binance-coin.png" class="crypto-icon" style="left: 70%; animation-delay: 0.5s;">
-    <img src="https://img.icons8.com/color/48/dogecoin.png" class="crypto-icon" style="left: 90%; animation-delay: 1.5s;">
+    <img src="https://img.icons8.com/color/96/bitcoin--v1.png" class="crypto-icon" style="left: 10%; animation-delay: 0s;">
+    <img src="https://img.icons8.com/color/96/ethereum.png" class="crypto-icon" style="left: 30%; animation-delay: 1s;">
+    <img src="https://img.icons8.com/color/96/litecoin.png" class="crypto-icon" style="left: 50%; animation-delay: 2s;">
+    <img src="https://img.icons8.com/color/96/binance-coin.png" class="crypto-icon" style="left: 70%; animation-delay: 0.5s;">
+    <img src="https://img.icons8.com/color/96/dogecoin.png" class="crypto-icon" style="left: 90%; animation-delay: 1.5s;">
   </div>
 
   <!-- Header -->
@@ -159,23 +159,27 @@
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
+        <li><a href="#earn">Earn</a></li>
         <li><a href="#advertise">Advertise</a></li>
         <li><a href="#tasks">Submit Tasks</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Home Section -->
+  <!-- Sections -->
   <section id="home">
     <h2>Welcome to StarGalaxy</h2>
     <p>Your ultimate platform for earning and advertising.</p>
   </section>
 
-  <!-- Advertise Section -->
+  <section id="earn">
+    <h2>Earn Rewards</h2>
+    <p>Complete tasks and earn exciting rewards.</p>
+  </section>
+
   <section id="advertise">
     <h2>Submit Your Ad Campaign</h2>
     <form action="https://script.google.com/macros/s/AKfycbweMKuJILLjIu1qvV3SPqM4gPFMG_BOLzjoeb3Rah_2h_ON52dqAwYvMaDKMO4sNO0HfA/exec" method="POST">
-
       <label for="campaign-url">Campaign URL:</label>
       <input type="url" id="campaign-url" name="campaign-url" placeholder="Enter the URL of your content" required>
 
@@ -193,13 +197,13 @@
     </form>
   </section>
 
-  <!-- Task Submission Section -->
   <section id="tasks">
     <h2>Submit Your Tasks</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfo5k4MuovhV00ANf0yVPAeJzB15h7Er-YgRbtK6RhvrgSFXw/viewform?embedded=true" width="100%" height="600"></iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfo5k4MuovhV00ANf0yVPAeJzB15h7Er-YgRbtK6RhvrgSFXw/viewform?embedded=true"></iframe>
   </section>
 </body>
 </html>
+
 
 
 
