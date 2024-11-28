@@ -102,9 +102,9 @@
       text-decoration: none;
     }
 
-    /* Animation */
-    .animation-area {
-      position: absolute;
+    /* Falling Coin Animation */
+    .coin-container {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -113,30 +113,48 @@
       z-index: -1;
     }
 
-    .animation-area span {
+    .coin-container img {
       position: absolute;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png') no-repeat center center / contain;
-      animation: animate 25s linear infinite;
+      width: 40px;
+      height: 40px;
+      animation: fall 7s infinite ease-in-out;
     }
 
-    .animation-area span:nth-child(2) {
-      animation-delay: 5s;
-      top: 10%;
-      left: 30%;
-    }
-
-    @keyframes animate {
+    @keyframes fall {
       0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(-100%);
         opacity: 1;
       }
       100% {
-        transform: translateY(100vh) rotate(720deg);
+        transform: translateY(110vh);
         opacity: 0;
       }
+    }
+
+    /* Adding multiple coins */
+    .coin-container img:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .coin-container img:nth-child(2) {
+      left: 25%;
+      animation-delay: 1s;
+    }
+    .coin-container img:nth-child(3) {
+      left: 40%;
+      animation-delay: 2s;
+    }
+    .coin-container img:nth-child(4) {
+      left: 55%;
+      animation-delay: 3s;
+    }
+    .coin-container img:nth-child(5) {
+      left: 70%;
+      animation-delay: 4s;
+    }
+    .coin-container img:nth-child(6) {
+      left: 85%;
+      animation-delay: 5s;
     }
   </style>
 </head>
@@ -155,13 +173,14 @@
     <button class="get-started-btn" onclick="window.location.href='earn.html';">Get Started</button>
   </div>
 
-  <!-- Animation -->
-  <div class="animation-area">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+  <!-- Falling Coins Animation -->
+  <div class="coin-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
   </div>
 
   <!-- Footer -->
@@ -170,6 +189,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
