@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarGalaxy - Home</title>
     <style>
+        /* General styling */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -14,23 +15,44 @@
         }
 
         header {
-            text-align: center;
-            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1a2238;
+        }
+
+        /* Navigation styles */
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffc107, #ff5722);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .nav a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ff5722, #ffc107);
         }
 
         header h1 {
-            font-size: 3rem;
             color: #ffc107;
+            font-size: 2.5rem;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #f8f9fa;
-        }
-
+        /* Button styles */
         .button-container {
             text-align: center;
-            margin: 30px;
+            margin: 40px 0;
         }
 
         .button-container a {
@@ -48,6 +70,7 @@
             background-color: #ff5722;
         }
 
+        /* Coin animations */
         .coin {
             position: absolute;
             width: 50px;
@@ -80,8 +103,12 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to StarGalaxy</h1>
-        <p>Your advanced reward-based platform</p>
+        <h1>StarGalaxy</h1>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="earn.html">Earn</a>
+            <a href="advertise.html">Advertise</a>
+        </nav>
     </header>
 
     <div class="button-container">
@@ -106,3 +133,4 @@
     </script>
 </body>
 </html>
+
