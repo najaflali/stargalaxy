@@ -11,7 +11,6 @@
             background-color: #0b1121;
             color: white;
             text-align: center;
-            overflow-x: hidden;
         }
 
         header {
@@ -54,46 +53,36 @@
             margin-bottom: 20px;
         }
 
-        .task {
+        .ad-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .ad {
             background: linear-gradient(145deg, #1e2945, #2e3b5d);
             box-shadow: 4px 4px 10px #0b1121, -4px -4px 10px #1a2238;
             padding: 20px;
             border-radius: 20px;
             margin: 20px auto;
             width: 90%;
-            max-width: 500px;
-            text-align: left;
+            max-width: 700px;
             color: white;
             position: relative;
         }
 
-        .task h2 {
+        .ad h2 {
             font-size: 1.5rem;
-            margin: 10px 0;
+            margin-bottom: 10px;
         }
 
-        .task p {
+        .ad p {
             font-size: 1rem;
-            margin: 10px 0 20px;
-        }
-
-        .task .progress {
-            background-color: #2e3b5d;
-            border-radius: 10px;
-            height: 10px;
             margin: 10px 0;
-            overflow: hidden;
-            position: relative;
         }
 
-        .task .progress .bar {
-            height: 100%;
-            background-color: #ffc107;
-            width: 50%; /* Example progress value */
-            transition: width 0.3s ease;
-        }
-
-        .task button {
+        .ad button {
             background-color: #ffc107;
             color: #1a2238;
             padding: 10px 20px;
@@ -105,7 +94,7 @@
             transition: background 0.3s;
         }
 
-        .task button:hover {
+        .ad button:hover {
             background-color: #ff5722;
         }
 
@@ -134,27 +123,23 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Earn Rewards</h1>
-        <!-- Task 1 -->
-        <div class="task">
-            <h2>Get 700 Impressions</h2>
-            <p>Earn 1 dollar when you complete 700 impressions or views.</p>
-            <div class="progress">
-                <div class="bar" style="width: 25%;"></div> <!-- Example: 25% progress -->
-            </div>
-            <p>Progress: 175/700 views</p>
-            <button>Submit Task</button>
-        </div>
+        <h1>Earn Cryptocurrency</h1>
+        <p>Watch ads to earn cryptocurrency based on the revenue we generate from campaigns!</p>
 
-        <!-- Task 2 -->
-        <div class="task">
-            <h2>Follow on YouTube</h2>
-            <p>Earn extra rewards for subscribing to our YouTube channel.</p>
-            <div class="progress">
-                <div class="bar" style="width: 0%;"></div> <!-- Example: 0% progress -->
+        <div class="ad-container">
+            <!-- Example Ad 1 -->
+            <div class="ad">
+                <h2>Ad #1: Product Promotion</h2>
+                <p>Watch this ad to earn 0.00001 BTC!</p>
+                <button onclick="viewAd('Ad1')">Watch Ad</button>
             </div>
-            <p>Progress: 0/1 subscribed</p>
-            <button>Submit Task</button>
+
+            <!-- Example Ad 2 -->
+            <div class="ad">
+                <h2>Ad #2: Amazing Service</h2>
+                <p>Watch this ad to earn 0.00002 BTC!</p>
+                <button onclick="viewAd('Ad2')">Watch Ad</button>
+            </div>
         </div>
     </div>
 
@@ -162,6 +147,14 @@
     <footer>
         <p>Need help? <a href="contact.html">Contact Us</a></p>
     </footer>
+
+    <script>
+        function viewAd(adId) {
+            alert(`You are watching ${adId}. Your reward will be processed after completing the ad!`);
+            // Add backend connection or integration with tracking logic here.
+        }
+    </script>
 </body>
 </html>
+
 
