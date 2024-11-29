@@ -14,6 +14,43 @@
             color: white;
         }
 
+        /* Header Styles */
+        .header {
+            background-color: #243b55;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #ffcc00;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+        }
+
         .container {
             text-align: center;
             padding: 50px 20px;
@@ -73,6 +110,17 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <h1>StarGalaxy</h1>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="earn.html">Earn</a>
+            <a href="advertise.html">Advertise</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>Earn Rewards with StarGalaxy</h1>
         <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
@@ -111,6 +159,7 @@
     </div>
 </body>
 </html>
+
 
 
 
