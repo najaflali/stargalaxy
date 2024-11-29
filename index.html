@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarGalaxy - Home</title>
     <style>
-        /* General styling */
+        /* General Styles */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -14,77 +14,50 @@
             color: white;
         }
 
+        /* Header Styles */
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 10px 20px;
+            position: relative;
             background-color: #1a2238;
+            padding: 15px 0;
         }
 
-        /* Navigation styles */
         .nav {
             display: flex;
-            gap: 20px;
+            gap: 40px;
         }
 
         .nav a {
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 25px;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ffc107, #ff5722);
-            transition: transform 0.2s, background 0.3s;
-        }
-
-        .nav a:hover {
-            transform: scale(1.1);
-            background: linear-gradient(45deg, #ff5722, #ffc107);
-        }
-
-        header h1 {
-            color: #ffc107;
-            font-size: 2.5rem;
-        }
-
-        /* Button styles */
-        .button-container {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .button-container a {
-            text-decoration: none;
-            background-color: #ffc107;
-            color: #0b1121;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
             font-size: 1.2rem;
             font-weight: bold;
+            background: linear-gradient(45deg, #ff4d6d, #ffc107);
             transition: 0.3s ease-in-out;
         }
 
-        .button-container a:hover {
-            background-color: #ff5722;
+        .nav a:hover {
+            background: linear-gradient(45deg, #ffc107, #ff5722);
+            transform: scale(1.1);
         }
 
-        /* Coin animations */
+        /* Animated Background Coins */
         .coin {
             position: absolute;
             width: 50px;
+            height: 50px;
+            background-size: cover;
+            background-repeat: no-repeat;
             animation: fall linear infinite;
         }
 
         .coin.bitcoin { background-image: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png'); }
         .coin.ethereum { background-image: url('https://cryptologos.cc/logos/ethereum-eth-logo.png'); }
         .coin.binance { background-image: url('https://cryptologos.cc/logos/binance-coin-bnb-logo.png'); }
-
-        .coin {
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
 
         @keyframes fall {
             0% {
@@ -99,11 +72,32 @@
                 opacity: 0;
             }
         }
+
+        /* Get Started Button */
+        .button-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background-color: #ffc107;
+            color: #0b1121;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #ff5722;
+        }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>StarGalaxy</h1>
         <nav class="nav">
             <a href="index.html">Home</a>
             <a href="earn.html">Earn</a>
@@ -111,6 +105,7 @@
         </nav>
     </header>
 
+    <!-- Get Started Button -->
     <div class="button-container">
         <a href="signup.html">Get Started</a>
     </div>
@@ -123,6 +118,7 @@
     <div class="coin ethereum" style="left: 90%; animation-duration: 5.5s;"></div>
 
     <script>
+        // Animate coins dynamically
         const coins = document.querySelectorAll('.coin');
         coins.forEach(coin => {
             const duration = parseFloat(getComputedStyle(coin).animationDuration) * 1000;
@@ -133,4 +129,3 @@
     </script>
 </body>
 </html>
-
