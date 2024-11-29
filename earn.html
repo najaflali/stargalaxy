@@ -3,158 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earn Rewards - StarGalaxy</title>
+    <title>Earn with StarGalaxy</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
-            background-color: #0b1121;
+            padding: 0;
+            background: linear-gradient(to bottom, #141e30, #243b55);
             color: white;
+        }
+
+        .container {
             text-align: center;
+            padding: 50px 20px;
         }
 
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1a2238;
-            padding: 15px 0;
-        }
-
-        .nav {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff4d6d, #ffc107);
-            transition: 0.3s ease-in-out;
-        }
-
-        .nav a:hover {
-            background: linear-gradient(45deg, #ffc107, #ff5722);
-            transform: scale(1.1);
-        }
-
-        .main-content {
-            padding: 40px 20px;
-        }
-
-        .main-content h1 {
-            font-size: 2.5rem;
-            color: #ffc107;
-            text-shadow: 2px 2px #ff4d6d;
+        h1 {
+            font-size: 3em;
             margin-bottom: 20px;
+            color: #ffcc00;
         }
 
-        .ad-container {
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .tasks {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
 
-        .ad {
-            background: linear-gradient(145deg, #1e2945, #2e3b5d);
-            box-shadow: 4px 4px 10px #0b1121, -4px -4px 10px #1a2238;
-            padding: 20px;
-            border-radius: 20px;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 700px;
-            color: white;
-            position: relative;
-        }
-
-        .ad h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .ad p {
-            font-size: 1rem;
-            margin: 10px 0;
-        }
-
-        .ad button {
-            background-color: #ffc107;
-            color: #1a2238;
-            padding: 10px 20px;
-            border: none;
+        .task {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ffcc00;
             border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .task h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #ff8800;
+        }
+
+        .task p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.3s;
         }
 
-        .ad button:hover {
-            background-color: #ff5722;
-        }
-
-        footer {
-            background-color: #1a2238;
-            padding: 15px 0;
-            margin-top: 20px;
-        }
-
-        footer a {
-            text-decoration: none;
-            color: #ffc107;
-            font-weight: bold;
+        .cta:hover {
+            background-color: #ffcc00;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="earn.html">Earn</a>
-            <a href="advertise.html">Advertise</a>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Earn Cryptocurrency</h1>
-        <p>Watch ads to earn cryptocurrency based on the revenue we generate from campaigns!</p>
-
-        <div class="ad-container">
-            <!-- Example Ad 1 -->
-            <div class="ad">
-                <h2>Ad #1: Product Promotion</h2>
-                <p>Watch this ad to earn 0.00001 BTC!</p>
-                <button onclick="viewAd('Ad1')">Watch Ad</button>
+    <div class="container">
+        <h1>Earn Rewards with StarGalaxy</h1>
+        <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
+        <div class="tasks">
+            <!-- Task 1 -->
+            <div class="task">
+                <h3>Watch Ads</h3>
+                <p>Earn rewards by watching ads.</p>
+                <button class="cta">Watch Now</button>
             </div>
-
-            <!-- Example Ad 2 -->
-            <div class="ad">
-                <h2>Ad #2: Amazing Service</h2>
-                <p>Watch this ad to earn 0.00002 BTC!</p>
-                <button onclick="viewAd('Ad2')">Watch Ad</button>
+            <!-- Task 2 -->
+            <div class="task">
+                <h3>Like Posts</h3>
+                <p>Earn rewards by liking posts on social media.</p>
+                <button class="cta">Start Liking</button>
+            </div>
+            <!-- Task 3 -->
+            <div class="task">
+                <h3>Comment on Posts</h3>
+                <p>Earn rewards by commenting on posts.</p>
+                <button class="cta">Start Commenting</button>
+            </div>
+            <!-- Task 4 -->
+            <div class="task">
+                <h3>Follow Accounts</h3>
+                <p>Earn rewards by following accounts on social media.</p>
+                <button class="cta">Start Following</button>
+            </div>
+            <!-- Task 5 -->
+            <div class="task">
+                <h3>Subscribe to Channels</h3>
+                <p>Earn rewards by subscribing to YouTube channels.</p>
+                <button class="cta">Subscribe Now</button>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>Need help? <a href="contact.html">Contact Us</a></p>
-    </footer>
-
-    <script>
-        function viewAd(adId) {
-            alert(`You are watching ${adId}. Your reward will be processed after completing the ad!`);
-            // Add backend connection or integration with tracking logic here.
-        }
-    </script>
 </body>
 </html>
+
 
 
