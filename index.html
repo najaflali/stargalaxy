@@ -1,196 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarGalaxy - Home</title>
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: radial-gradient(circle, #0F2027, #203A43, #2C5364);
-      color: #EAEAEA;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGalaxy - Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0b1121;
+            overflow: hidden;
+            color: white;
+        }
 
-    /* Navbar */
-    nav {
-      background: rgba(0, 0, 0, 0.9);
-      padding: 15px 20px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-    }
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
 
-    nav a {
-      color: #EAEAEA;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 20px;
-      margin: 0 10px;
-      background: linear-gradient(45deg, #6A11CB, #2575FC);
-      border-radius: 5px;
-      transition: transform 0.3s, background 0.3s;
-    }
+        header h1 {
+            font-size: 3rem;
+            color: #ffc107;
+        }
 
-    nav a:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #43E97B, #38F9D7);
-    }
+        header p {
+            font-size: 1.2rem;
+            color: #f8f9fa;
+        }
 
-    /* Main Section */
-    .main-section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
+        .button-container {
+            text-align: center;
+            margin: 30px;
+        }
 
-    .main-section h1 {
-      font-size: 3.5em;
-      color: #F0C27B;
-      text-shadow: 2px 2px 10px rgba(240, 194, 123, 0.7);
-    }
+        .button-container a {
+            text-decoration: none;
+            background-color: #ffc107;
+            color: #0b1121;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
 
-    .main-section p {
-      font-size: 1.2em;
-      margin: 20px auto;
-      max-width: 600px;
-      line-height: 1.8;
-      color: #EAEAEA;
-      text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
-    }
+        .button-container a:hover {
+            background-color: #ff5722;
+        }
 
-    /* Get Started Button */
-    .get-started-btn {
-      margin-top: 20px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      color: white;
-      background: linear-gradient(45deg, #1D2671, #C33764);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: transform 0.3s, background 0.3s;
-    }
+        .coin {
+            position: absolute;
+            width: 50px;
+            animation: fall linear infinite;
+        }
 
-    .get-started-btn:hover {
-      transform: scale(1.1);
-      background: linear-gradient(45deg, #8E44AD, #3498DB);
-    }
+        .coin.bitcoin { background-image: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png'); }
+        .coin.ethereum { background-image: url('https://cryptologos.cc/logos/ethereum-eth-logo.png'); }
+        .coin.binance { background-image: url('https://cryptologos.cc/logos/binance-coin-bnb-logo.png'); }
 
-    /* Footer */
-    footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      color: #aaa;
-      font-size: 0.9em;
-    }
+        .coin {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
 
-    footer a {
-      color: #EAEAEA;
-      text-decoration: none;
-    }
-
-    /* Falling Coin Animation */
-    .coin-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .coin-container img {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      animation: fall 7s infinite ease-in-out;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-100%);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0;
-      }
-    }
-
-    /* Adding multiple coins */
-    .coin-container img:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-    }
-    .coin-container img:nth-child(2) {
-      left: 25%;
-      animation-delay: 1s;
-    }
-    .coin-container img:nth-child(3) {
-      left: 40%;
-      animation-delay: 2s;
-    }
-    .coin-container img:nth-child(4) {
-      left: 55%;
-      animation-delay: 3s;
-    }
-    .coin-container img:nth-child(5) {
-      left: 70%;
-      animation-delay: 4s;
-    }
-    .coin-container img:nth-child(6) {
-      left: 85%;
-      animation-delay: 5s;
-    }
-  </style>
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="earn.html">Earn</a>
-    <a href="advertise.html">Advertise</a>
-  </nav>
+    <header>
+        <h1>Welcome to StarGalaxy</h1>
+        <p>Your advanced reward-based platform</p>
+    </header>
 
-  <!-- Main Section -->
-  <div class="main-section">
-    <h1>Welcome to StarGalaxy</h1>
-    <p>The ultimate platform to earn cryptocurrency rewards and promote your content effectively.</p>
-    <button class="get-started-btn" onclick="window.location.href='earn.html';">Get Started</button>
-  </div>
+    <div class="button-container">
+        <a href="signup.html">Get Started</a>
+    </div>
 
-  <!-- Falling Coins Animation -->
-  <div class="coin-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/64px-Bitcoin_logo.svg.png" alt="Bitcoin">
-  </div>
+    <!-- Falling Coins -->
+    <div class="coin bitcoin" style="left: 10%; animation-duration: 5s;"></div>
+    <div class="coin ethereum" style="left: 30%; animation-duration: 6s;"></div>
+    <div class="coin binance" style="left: 50%; animation-duration: 7s;"></div>
+    <div class="coin bitcoin" style="left: 70%; animation-duration: 4s;"></div>
+    <div class="coin ethereum" style="left: 90%; animation-duration: 5.5s;"></div>
 
-  <!-- Footer -->
-  <footer>
-    © 2024 StarGalaxy. All rights reserved. | <a href="#">Privacy Policy</a>
-  </footer>
+    <script>
+        const coins = document.querySelectorAll('.coin');
+        coins.forEach(coin => {
+            const duration = parseFloat(getComputedStyle(coin).animationDuration) * 1000;
+            setInterval(() => {
+                coin.style.left = `${Math.random() * 100}vw`;
+            }, duration);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
