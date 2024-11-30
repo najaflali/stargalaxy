@@ -1,139 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earn Rewards - StarGalaxy</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #141414;
-      color: #fff;
-    }
-    header {
-      background-color: #222;
-      padding: 15px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    main {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-    .form-container {
-      background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .form-container label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-    .form-container input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #333;
-      color: #fff;
-    }
-    .form-container button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .form-container button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #222;
-      margin-top: 20px;
-    }
-    footer p {
-      margin: 0;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn with StarGalaxy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #141e30, #243b55);
+            color: white;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #243b55;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #ffcc00;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .tasks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .task {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .task h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #ff8800;
+        }
+
+        .task p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            background-color: #ffcc00;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>StarGalaxy Rewards</h1>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <h1>StarGalaxy</h1>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="earn.html">Earn</a>
+            <a href="advertise.html">Advertise</a>
+        </nav>
+    </header>
 
-  <!-- Main Content -->
-  <main>
-    <h2>Complete Tasks to Earn Rewards</h2>
-    <div class="form-container">
-      <form id="taskForm">
-        <label for="campaignId">Campaign ID:</label>
-        <input type="text" id="campaignId" name="campaignId" placeholder="Enter Campaign ID (e.g., CAMP001)" required>
-
-        <label for="taskType">Task Type:</label>
-        <input type="text" id="taskType" name="taskType" placeholder="Enter Task Type (e.g., view)" required>
-
-        <label for="userId">User ID:</label>
-        <input type="text" id="userId" name="userId" placeholder="Enter Your User ID (e.g., USER001)" required>
-
-        <button type="submit">Submit Task</button>
-      </form>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Earn Rewards with StarGalaxy</h1>
+        <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
+        <div class="tasks">
+            <!-- Task 1 -->
+            <div class="task">
+                <h3>Watch Ads</h3>
+                <p>Earn rewards by watching ads.</p>
+                <button class="cta">Watch Now</button>
+            </div>
+            <!-- Task 2 -->
+            <div class="task">
+                <h3>Like Posts</h3>
+                <p>Earn rewards by liking posts on social media.</p>
+                <button class="cta">Start Liking</button>
+            </div>
+            <!-- Task 3 -->
+            <div class="task">
+                <h3>Comment on Posts</h3>
+                <p>Earn rewards by commenting on posts.</p>
+                <button class="cta">Start Commenting</button>
+            </div>
+            <!-- Task 4 -->
+            <div class="task">
+                <h3>Follow Accounts</h3>
+                <p>Earn rewards by following accounts on social media.</p>
+                <button class="cta">Start Following</button>
+            </div>
+            <!-- Task 5 -->
+            <div class="task">
+                <h3>Subscribe to Channels</h3>
+                <p>Earn rewards by subscribing to YouTube channels.</p>
+                <button class="cta">Subscribe Now</button>
+            </div>
+        </div>
     </div>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 StarGalaxy. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById('taskForm').addEventListener('submit', async (e) => {
-      e.preventDefault(); // Prevent form from reloading the page
-
-      // Get form data
-      const campaignId = document.getElementById('campaignId').value.trim();
-      const taskType = document.getElementById('taskType').value.trim();
-      const userId = document.getElementById('userId').value.trim();
-
-      // Web App URL
-      const webAppUrl = "https://script.google.com/macros/s/AKfycbyhNjz421WfeuNewmvcOIohwwrGsIFQ0rKWxZNm_vdlwyRP5H9h-ALAMKXiOfn5FAUE-Q/exec";
-
-      // Construct URL with parameters
-      const url = `${webAppUrl}?action=recordTask&campaignId=${campaignId}&taskType=${taskType}&userId=${userId}`;
-
-      try {
-        // Send request
-        const response = await fetch(url);
-        const result = await response.text();
-
-        // Display the result
-        alert(result); // Show success or error message
-      } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while submitting the task. Please try again.');
-      }
-    });
-  </script>
 </body>
 </html>
-
-
-
-
-
-
