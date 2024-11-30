@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earn with StarGalaxy</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -51,6 +50,32 @@
             border-radius: 5px;
         }
 
+        /* Horizontal Biscuits */
+        .headers-biscuits {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
+            background-color: #2b3e5e;
+        }
+
+        .headers-biscuits div {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .headers-biscuits div:hover {
+            transform: scale(1.1);
+            background-color: #ff8800;
+        }
+
+        /* Main Content */
         .container {
             text-align: center;
             padding: 50px 20px;
@@ -120,6 +145,15 @@
         </nav>
     </header>
 
+    <!-- Horizontal Biscuits -->
+    <div class="headers-biscuits">
+        <div>Watch Ads</div>
+        <div>Like Posts</div>
+        <div>Comment</div>
+        <div>Follow</div>
+        <div>Subscribe</div>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
         <h1>Earn Rewards with StarGalaxy</h1>
@@ -129,33 +163,57 @@
             <div class="task">
                 <h3>Watch Ads</h3>
                 <p>Earn rewards by watching ads.</p>
-                <button class="cta">Watch Now</button>
+                <button class="cta" onclick="handleTask('CAMP001', 'view')">Watch Now</button>
             </div>
             <!-- Task 2 -->
             <div class="task">
                 <h3>Like Posts</h3>
                 <p>Earn rewards by liking posts on social media.</p>
-                <button class="cta">Start Liking</button>
+                <button class="cta" onclick="handleTask('CAMP002', 'like')">Start Liking</button>
             </div>
             <!-- Task 3 -->
             <div class="task">
                 <h3>Comment on Posts</h3>
                 <p>Earn rewards by commenting on posts.</p>
-                <button class="cta">Start Commenting</button>
+                <button class="cta" onclick="handleTask('CAMP003', 'comment')">Start Commenting</button>
             </div>
             <!-- Task 4 -->
             <div class="task">
                 <h3>Follow Accounts</h3>
                 <p>Earn rewards by following accounts on social media.</p>
-                <button class="cta">Start Following</button>
+                <button class="cta" onclick="handleTask('CAMP004', 'follow')">Start Following</button>
             </div>
             <!-- Task 5 -->
             <div class="task">
                 <h3>Subscribe to Channels</h3>
                 <p>Earn rewards by subscribing to YouTube channels.</p>
-                <button class="cta">Subscribe Now</button>
+                <button class="cta" onclick="handleTask('CAMP005', 'subscribe')">Subscribe Now</button>
             </div>
         </div>
     </div>
+
+    <script>
+        async function handleTask(campaignId, taskType) {
+            const userId = prompt("Enter your User ID (e.g., USER001):"); // Prompt user to input User ID
+
+            if (!userId) {
+                alert("User ID is required to proceed!");
+                return;
+            }
+
+            const webAppUrl = "https://script.google.com/macros/s/AKfycbyhNjz421WfeuNewmvcOIohwwrGsIFQ0rKWxZNm_vdlwyRP5H9h-ALAMKXiOfn5FAUE-Q/exec";
+            const url = `${webAppUrl}?action=recordTask&campaignId=${campaignId}&taskType=${taskType}&userId=${userId}`;
+
+            try {
+                const response = await fetch(url);
+                const result = await response.text();
+                alert(result); // Show response from the backend
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred while submitting the task. Please try again.");
+            }
+        }
+    </script>
 </body>
 </html>
+
