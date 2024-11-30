@@ -3,134 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earn - StarGalaxy</title>
+  <title>Earn Rewards - StarGalaxy</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f8ff;
+      background-color: #141414;
+      color: #fff;
     }
     header {
       background-color: #222;
-      color: #fff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 15px;
+      text-align: center;
     }
-    header a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    header a:hover {
-      text-decoration: underline;
+    header h1 {
+      margin: 0;
+      font-size: 24px;
     }
     main {
       padding: 20px;
-    }
-    form {
-      max-width: 500px;
+      max-width: 800px;
       margin: auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
-    label {
+    .form-container {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .form-container label {
       display: block;
       margin-bottom: 8px;
-      font-weight: bold;
+      font-size: 16px;
     }
-    input {
+    .form-container input {
       width: 100%;
       padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
+      margin-bottom: 20px;
       border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 4px;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
     }
-    button:hover {
+    .form-container button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .form-container button:hover {
       background-color: #45a049;
     }
     footer {
       text-align: center;
       padding: 10px;
       background-color: #222;
-      color: #fff;
       margin-top: 20px;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1>StarGalaxy</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="earn.html">Earn</a>
-      <a href="advertise.html">Advertise</a>
-    </nav>
+    <h1>StarGalaxy Rewards</h1>
   </header>
 
   <!-- Main Content -->
   <main>
-    <h2>Earn Rewards</h2>
-    <form id="taskForm">
-      <label for="campaignId">Campaign ID:</label>
-      <input type="text" id="campaignId" name="campaignId" placeholder="e.g., CAMP001" required>
-      
-      <label for="taskType">Task Type:</label>
-      <input type="text" id="taskType" name="taskType" placeholder="e.g., view" required>
-      
-      <label for="userId">User ID:</label>
-      <input type="text" id="userId" name="userId" placeholder="e.g., USER001" required>
-      
-      <button type="submit">Submit Task</button>
-    </form>
+    <h2>Complete Tasks to Earn Rewards</h2>
+    <div class="form-container">
+      <form id="taskForm">
+        <label for="campaignId">Campaign ID:</label>
+        <input type="text" id="campaignId" name="campaignId" placeholder="Enter Campaign ID (e.g., CAMP001)" required>
+
+        <label for="taskType">Task Type:</label>
+        <input type="text" id="taskType" name="taskType" placeholder="Enter Task Type (e.g., view)" required>
+
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" placeholder="Enter Your User ID (e.g., USER001)" required>
+
+        <button type="submit">Submit Task</button>
+      </form>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    &copy; 2024 StarGalaxy. All rights reserved.
+    <p>&copy; 2024 StarGalaxy. All rights reserved.</p>
   </footer>
 
   <script>
     document.getElementById('taskForm').addEventListener('submit', async (e) => {
       e.preventDefault(); // Prevent form from reloading the page
-      
+
       // Get form data
-      const campaignId = document.getElementById('campaignId').value;
-      const taskType = document.getElementById('taskType').value;
-      const userId = document.getElementById('userId').value;
-      
-      // Replace with your web app URL
+      const campaignId = document.getElementById('campaignId').value.trim();
+      const taskType = document.getElementById('taskType').value.trim();
+      const userId = document.getElementById('userId').value.trim();
+
+      // Web App URL
       const webAppUrl = "https://script.google.com/macros/s/AKfycbyhNjz421WfeuNewmvcOIohwwrGsIFQ0rKWxZNm_vdlwyRP5H9h-ALAMKXiOfn5FAUE-Q/exec";
-      
-      // Build the URL with parameters
+
+      // Construct URL with parameters
       const url = `${webAppUrl}?action=recordTask&campaignId=${campaignId}&taskType=${taskType}&userId=${userId}`;
-      
+
       try {
         // Send request
         const response = await fetch(url);
-        const text = await response.text();
-        alert(text); // Show success or error message
+        const result = await response.text();
+
+        // Display the result
+        alert(result); // Show success or error message
       } catch (error) {
         console.error('Error:', error);
-        alert('There was an error submitting the task. Please try again.');
+        alert('An error occurred while submitting the task. Please try again.');
       }
     });
   </script>
 </body>
 </html>
+
 
 
 
