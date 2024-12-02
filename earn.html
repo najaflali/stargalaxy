@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earn with StarGalaxy</title>
+    <title>Earn Rewards with StarGalaxy</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -14,6 +14,7 @@
             color: white;
         }
 
+        /* Header Styles */
         .header {
             background-color: #243b55;
             padding: 10px 20px;
@@ -106,9 +107,15 @@
         .cta:hover {
             background-color: #ffcc00;
         }
+
+        #loading {
+            color: red;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <h1>StarGalaxy</h1>
         <nav class="nav-links">
@@ -118,55 +125,51 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <div class="container">
         <h1>Earn Rewards with StarGalaxy</h1>
         <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
-        <div class="tasks">
-            <p style="color: red; font-weight: bold;">Loading tasks...</p>
-        </div>
+        <div id="loading">Loading tasks...</div>
+        <div class="tasks" id="taskContainer"></div>
     </div>
 
     <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbyGV8Kt4e_wZbuHWJjdxftwqQLIRkikYTrH36GQjDef4SV1_7IyrkPMc6cA2y8y7HOuxw/exec";
+        const webAppUrl = "https://script.google.com/macros/s/AKfycbzM-k_UH6hpeyLtpCm9-c1XWUa9EixMhEYU1vdXgh9g/dev";
 
         async function fetchTasks() {
             try {
-                const response = await fetch(`${API_URL}?action=fetchTasks`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                const response = await fetch(webAppUrl);
                 const tasks = await response.json();
-                renderTasks(tasks);
+
+                if (tasks.length === 0) {
+                    document.getElementById('loading').innerText = "No tasks available at the moment.";
+                    return;
+                }
+
+                document.getElementById('loading').style.display = "none";
+
+                const taskContainer = document.getElementById('taskContainer');
+                tasks.forEach(task => {
+                    const taskElement = document.createElement('div');
+                    taskElement.className = 'task';
+                    taskElement.innerHTML = `
+                        <h3>${task.taskType}</h3>
+                        <p>${task.description}</p>
+                        <button class="cta" onclick="window.open('${task.targetLink}', '_blank')">Start Task</button>
+                    `;
+                    taskContainer.appendChild(taskElement);
+                });
             } catch (error) {
-                console.error("Failed to fetch tasks:", error);
-                document.querySelector(".tasks").innerHTML = `
-                    <p style="color: red; font-weight: bold;">Failed to load tasks. Please try again later.</p>
-                `;
+                console.error('Error fetching tasks:', error);
+                document.getElementById('loading').innerText = "Failed to load tasks. Please try again later.";
             }
-        }
-
-        function renderTasks(tasks) {
-            const tasksContainer = document.querySelector(".tasks");
-            tasksContainer.innerHTML = ""; // Clear existing tasks
-
-            tasks.forEach(task => {
-                const taskElement = document.createElement("div");
-                taskElement.classList.add("task");
-                taskElement.innerHTML = `
-                    <h3>${task.taskType}</h3>
-                    <p>Advertiser: ${task.advertiserName}</p>
-                    <p>Campaign ID: ${task.campaignID}</p>
-                    <p>Impressions: ${task.impressionsCompleted} / ${task.targetQuantity}</p>
-                    <button class="cta">Start Task</button>
-                `;
-                tasksContainer.appendChild(taskElement);
-            });
         }
 
         fetchTasks();
     </script>
 </body>
 </html>
+
 
 
 
