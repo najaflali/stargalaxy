@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earn with StarGalaxy</title>
+    <!-- Corrected styles.css link -->
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -152,7 +153,34 @@
                 loadingMessage.style.display = "none";
 
                 if (tasks.length > 0) {
-                    tasks.forEach(task =>
+                    tasks.forEach(task => {
+                        const taskElement = document.createElement("div");
+                        taskElement.className = "task";
+                        taskElement.innerHTML = `
+                            <h3>Task: ${task.taskType}</h3>
+                            <p>Description: ${task.description}</p>
+                            <p>Reward: ${task.reward} USD</p>
+                            <a href="${task.targetLink}" target="_blank">
+                                <button class="cta">Complete Task</button>
+                            </a>
+                        `;
+                        tasksContainer.appendChild(taskElement);
+                    });
+                } else {
+                    tasksContainer.innerHTML = "<p>No tasks available right now. Check back later!</p>";
+                }
+            } catch (error) {
+                console.error("Error loading tasks:", error);
+                loadingMessage.style.display = "none";
+                errorMessage.style.display = "block";
+            }
+        }
+
+        loadTasks();
+    </script>
+</body>
+</html>
+
 
 
 
