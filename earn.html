@@ -4,58 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earn Rewards - StarGalaxy</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Keep your CSS file intact -->
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="earn.html">Earn</a></li>
+                <li><a href="earn.html" class="active">Earn</a></li>
                 <li><a href="advertise.html">Advertise</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Earn Rewards with StarGalaxy</h1>
-        <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
-        <div id="task-container">
-            <p>Loading tasks...</p>
-        </div>
+        <section class="earn-section">
+            <h1>Earn Rewards with StarGalaxy</h1>
+            <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
+            <div id="task-container" class="task-container">
+                <p>Loading tasks...</p> <!-- Placeholder while tasks load -->
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 StarGalaxy. All rights reserved.</p>
+    </footer>
 
     <script>
         async function loadTasks() {
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbxCW7A2NI0X1qgHor09uKa8SW696Y-9SXVE1ACZn6OgN4h-tStit5BUs8qQJ0iuK72IkQ/exec
-'); // Replace with your web app URL
-                const tasks = await response.json();
+            const webAppUrl = "https://script.google.com/macros/s/AKfycbxCW7A2NI0X1qgHor09uKa8SW696Y-9SXVE1ACZn6OgN4h-tStit5BUs8qQJ0iuK72IkQ/exec";
 
-                const taskContainer = document.getElementById('task-container');
-                taskContainer.innerHTML = '';
+            try {
+                const response = await fetch(webAppUrl);
+                if (!response.ok) throw new Error("Network response was not ok");
+
+                const tasks = await response.json();
+                const taskContainer = document.getElementById("task-container");
+                taskContainer.innerHTML = ""; // Clear loading text
 
                 if (tasks.length === 0) {
                     taskContainer.innerHTML = '<p>No tasks available at the moment.</p>';
                 } else {
                     tasks.forEach(task => {
-                        const taskDiv = document.createElement('div');
-                        taskDiv.innerHTML = `
-                            <h3>Task: ${task.taskType}</h3>
-                            <p>Description: ${task.description}</p>
-                            <p>Reward: ${task.reward} USD</p>
-                            <a href="${task.targetLink}" target="_blank">Complete Task</a>
-                        `;
-                        taskContainer.appendChild(taskDiv);
+                        const taskElement = `
+                            <div class="task">
+                                <h3>Task: ${task.taskType}</h3>
+                                <p>Description: ${task.description}</p>
+                                <p>Reward: <strong>${task.reward} USD</strong></p>
+                                <a href="${task.targetLink}" target="_blank" class="btn">Complete Task</a>
+                            </div>`;
+                        taskContainer.innerHTML += taskElement;
                     });
                 }
             } catch (error) {
-                console.error('Error loading tasks:', error);
-                document.getElementById('task-container').innerHTML = '<p>Failed to load tasks. Please try again later.</p>';
+                console.error("Error loading tasks:", error);
+                document.getElementById("task-container").innerHTML = '<p>Failed to load tasks. Please try again later.</p>';
             }
         }
 
+        // Call the loadTasks function after the page loads
         window.onload = loadTasks;
     </script>
 </body>
 </html>
+
