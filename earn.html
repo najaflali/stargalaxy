@@ -3,187 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earn with StarGalaxy</title>
-    <!-- Corrected styles.css link -->
+    <title>Earn Rewards - StarGalaxy</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #141e30, #243b55);
-            color: white;
-        }
-
-        .header {
-            background-color: #243b55;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #ffcc00;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background-color: #ffcc00;
-            color: black;
-            border-radius: 5px;
-        }
-
-        .container {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #ffcc00;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        .tasks {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .task {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid #ffcc00;
-            border-radius: 10px;
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
-
-        .task h3 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            color: #ff8800;
-        }
-
-        .task p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .cta {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: #ff8800;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .cta:hover {
-            background-color: #ffcc00;
-        }
-
-        #loading {
-            color: red;
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-
-        #error {
-            color: red;
-            font-size: 1.2em;
-        }
-    </style>
 </head>
 <body>
-    <header class="header">
-        <h1>StarGalaxy</h1>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="earn.html">Earn</a>
-            <a href="advertise.html">Advertise</a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="earn.html">Earn</a></li>
+                <li><a href="advertise.html">Advertise</a></li>
+            </ul>
         </nav>
     </header>
 
-    <div class="container">
+    <main>
         <h1>Earn Rewards with StarGalaxy</h1>
         <p>Complete tasks to earn cryptocurrency rewards. Choose a task below and start earning!</p>
-        <div id="loading">Loading tasks...</div>
-        <div class="tasks" id="tasks-container"></div>
-        <div id="error" style="display: none;">Failed to load tasks. Please try again later.</div>
-    </div>
+        <div id="task-container">
+            <p>Loading tasks...</p>
+        </div>
+    </main>
 
     <script>
-        const webAppURL = "https://script.google.com/macros/s/AKfycbxCW7A2NI0X1qgHor09uKa8SW696Y-9SXVE1ACZn6OgN4h-tStit5BUs8qQJ0iuK72IkQ/exec";
-
         async function loadTasks() {
-            const loadingMessage = document.getElementById("loading");
-            const tasksContainer = document.getElementById("tasks-container");
-            const errorMessage = document.getElementById("error");
-
             try {
-                const response = await fetch(webAppURL);
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxCW7A2NI0X1qgHor09uKa8SW696Y-9SXVE1ACZn6OgN4h-tStit5BUs8qQJ0iuK72IkQ/exec
+'); // Replace with your web app URL
                 const tasks = await response.json();
 
-                loadingMessage.style.display = "none";
+                const taskContainer = document.getElementById('task-container');
+                taskContainer.innerHTML = '';
 
-                if (tasks.length > 0) {
+                if (tasks.length === 0) {
+                    taskContainer.innerHTML = '<p>No tasks available at the moment.</p>';
+                } else {
                     tasks.forEach(task => {
-                        const taskElement = document.createElement("div");
-                        taskElement.className = "task";
-                        taskElement.innerHTML = `
+                        const taskDiv = document.createElement('div');
+                        taskDiv.innerHTML = `
                             <h3>Task: ${task.taskType}</h3>
                             <p>Description: ${task.description}</p>
                             <p>Reward: ${task.reward} USD</p>
-                            <a href="${task.targetLink}" target="_blank">
-                                <button class="cta">Complete Task</button>
-                            </a>
+                            <a href="${task.targetLink}" target="_blank">Complete Task</a>
                         `;
-                        tasksContainer.appendChild(taskElement);
+                        taskContainer.appendChild(taskDiv);
                     });
-                } else {
-                    tasksContainer.innerHTML = "<p>No tasks available right now. Check back later!</p>";
                 }
             } catch (error) {
-                console.error("Error loading tasks:", error);
-                loadingMessage.style.display = "none";
-                errorMessage.style.display = "block";
+                console.error('Error loading tasks:', error);
+                document.getElementById('task-container').innerHTML = '<p>Failed to load tasks. Please try again later.</p>';
             }
         }
 
-        loadTasks();
+        window.onload = loadTasks;
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
