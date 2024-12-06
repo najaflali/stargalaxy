@@ -6,184 +6,104 @@
     <title>StarGalaxy - Home</title>
     <style>
         /* General Styles */
-        body {
+        * {
             margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
-            background-color: #0b1121;
-            overflow: hidden;
-            color: white;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background-color: #1a2238;
-            padding: 15px 0;
-        }
-
-        .nav {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff4d6d, #ffc107);
-            transition: 0.3s ease-in-out;
-        }
-
-        .nav a:hover {
-            background: linear-gradient(45deg, #ffc107, #ff5722);
-            transform: scale(1.1);
-        }
-
-        /* Website Name and Welcome Line */
-        .welcome-section {
-            margin: 50px 0;
-        }
-
-        .welcome-section h1 {
-            font-size: 3rem;
-            color: #ffc107;
-            text-shadow: 2px 2px #ff4d6d;
-        }
-
-        .welcome-section p {
-            font-size: 1.5rem;
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
             color: #ffffff;
-        }
-
-        /* Get Started Button */
-        .button-container {
             text-align: center;
-            margin: 30px 0;
         }
 
-        .button-container a {
+        /* Header Section */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
             text-decoration: none;
-            background-color: #ffc107;
-            color: #0b1121;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: 0.3s ease;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
         }
 
-        .button-container a:hover {
-            background-color: #ff5722;
+        nav a:hover {
+            color: #00ffff;
         }
 
-        /* Category Buttons */
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
+        /* Main Content Area */
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .categories a {
-            text-decoration: none;
+        h1 {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        /* Button Styling */
+        .btn {
             display: inline-block;
-            padding: 20px 40px;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #6a5acd, #ff69b4);
+            margin: 20px 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #004080;
             color: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, background-color 0.3s;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .categories a:hover {
-            transform: scale(1.1);
-            background: linear-gradient(45deg, #ff69b4, #6a5acd);
-        }
-
-        /* Animated Background Coins */
-        .coin {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            animation: fall linear infinite;
-        }
-
-        .coin.bitcoin { background-image: url('https://cryptologos.cc/logos/bitcoin-btc-logo.png'); }
-        .coin.ethereum { background-image: url('https://cryptologos.cc/logos/ethereum-eth-logo.png'); }
-        .coin.binance { background-image: url('https://cryptologos.cc/logos/binance-coin-bnb-logo.png'); }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
+        .btn:hover {
+            background-color: #0077ff;
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <nav class="nav">
+        <nav>
             <a href="index.html">Home</a>
             <a href="earn.html">Earn</a>
             <a href="advertise.html">Advertise</a>
         </nav>
     </header>
 
-    <!-- Website Name and Welcome Section -->
-    <div class="welcome-section">
-        <h1>StarGalaxy</h1>
-        <p>Explore the Galaxy of Rewards and Opportunities!</p>
-    </div>
-
-    <!-- Get Started Button -->
-    <div class="button-container">
-        <a href="signup.html">Get Started</a>
-    </div>
-
-    <!-- Category Buttons -->
-    <div class="categories">
-        <a href="earn.html">Earn Rewards</a>
-        <a href="advertise.html">Advertise Campaigns</a>
-        <a href="join.html">Join the Galaxy</a>
-    </div>
-
-    <!-- Falling Coins -->
-    <div class="coin bitcoin" style="left: 10%; animation-duration: 5s;"></div>
-    <div class="coin ethereum" style="left: 30%; animation-duration: 6s;"></div>
-    <div class="coin binance" style="left: 50%; animation-duration: 7s;"></div>
-    <div class="coin bitcoin" style="left: 70%; animation-duration: 4s;"></div>
-    <div class="coin ethereum" style="left: 90%; animation-duration: 5.5s;"></div>
-
-    <script>
-        // Animate coins dynamically
-        const coins = document.querySelectorAll('.coin');
-        coins.forEach(coin => {
-            const duration = parseFloat(getComputedStyle(coin).animationDuration) * 1000;
-            setInterval(() => {
-                coin.style.left = `${Math.random() * 100}vw`;
-            }, duration);
-        });
-    </script>
+    <!-- Main Section -->
+    <main>
+        <h1>Welcome to StarGalaxy</h1>
+        <p>
+            Your journey to earning cryptocurrency through tasks and running advertising campaigns begins here. 
+        </p>
+        <p>
+            Explore opportunities to earn by completing tasks, or advertise your content by running impression campaigns.
+        </p>
+        <div>
+            <a href="earn.html" class="btn">Start Earning</a>
+            <a href="advertise.html" class="btn">Advertise Now</a>
+        </div>
+    </main>
 </body>
 </html>
+
 
 
