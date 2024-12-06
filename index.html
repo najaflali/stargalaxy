@@ -1,5 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGalaxy - Home</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main Body Background with Particle Animation */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #FFFFFF;
+            text-align: center;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #00172D, #002B5B);
+        }
+
+        /* Particle Effect Background */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #002B5B;
+            padding: 20px 0;
+            color: #FFD700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header nav {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #FFFFFF;
+            background: #003366;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background: #FFD700;
+            color: #002B5B;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 50px 0;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: #FFD700;
+            animation: bounce 2s infinite;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            font-size: 18px;
+            background-color: #FFD700;
+            border: none;
+            color: #002B5B;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero button:hover {
+            transform: translateY(-3px);
+            background: #FFA000;
+            box-shadow: 0px 8px 15px rgba(255, 193, 7, 0.6);
+        }
+
+        /* Biscuit Section */
+        .biscuits {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 20px;
+            margin: 50px 10px;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+
+        .biscuit {
+            background: linear-gradient(to bottom, #FFD700, #FFFFFF);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .biscuit:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+            color: #002B5B;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #00172D;
+            color: #AAAAAA;
+            padding: 10px 0;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* Parallax animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(-5px);
+            }
+            40% {
+                transform: translateY(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background Animation -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Header Section -->
+    <header>
+        <h1><span class="icon">🚀</span> StarGalaxy</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="earn.html">Earn Rewards</a>
+            <a href="advertise.html">Advertise</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Welcome to StarGalaxy</h2>
+        <p>Explore the universe of opportunities! Earn rewards, advertise your campaigns, and reach for the stars.</p>
+        <button onclick="window.location.href='earn.html'">Start Your Journey</button>
+    </div>
+
+    <!-- Biscuit Section -->
+    <div class="biscuits">
+        <div class="biscuit">💰 Complete Tasks to Earn</div>
+        <div class="biscuit">📢 Advertise Your Campaign</div>
+        <div class="biscuit">🌟 Unlock Exclusive Rewards</div>
+        <div class="biscuit">🔗 Share & Expand</div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 StarGalaxy. All Rights Reserved.
+    </footer>
+
+    <script>
+        /* Particle Effect */
+        const canvas = document.getElementById("particleCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                particlesArray.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3,
+                    dx: Math.random() * 2 - 1,
+                    dy: Math.random() * 2 - 1
+                });
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.fill();
+                particle.x += particle.dx;
+                particle.y += particle.dy;
+
+                if (particle.x < 0 || particle.x > canvas.width) particle.dx = -particle.dx;
+                if (particle.y < 0 || particle.y > canvas.height) particle.dy = -particle.dy;
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
