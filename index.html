@@ -1,183 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarGalaxy</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #001f3f; /* Dark navy blue */
-            color: white;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarGalaxy - Task Submission</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #3a4b6e, #6a8d9e);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
 
-        /* Header Section */
-        header {
-            background-color: #003366; /* Deep navy */
-            padding: 20px;
-            text-align: center;
-        }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+    h1 {
+      font-size: 2.8em;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
 
-        header p {
-            margin: 5px 0 20px;
-            font-size: 1.2em;
-        }
+    h2 {
+      font-size: 1.5em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #00509e; /* Light navy */
-            padding: 15px 0;
-        }
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.1em;
-            margin: 0 10px;
-            background-color: #007bff;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
+    .form-wrapper {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        nav a:hover {
-            background-color: #00509e;
-        }
+    footer {
+      color: #f1c40f;
+      font-size: 0.9em;
+      margin-top: 20px;
+    }
 
-        /* Main Content Section */
-        main {
-            padding: 20px;
-            text-align: center;
-        }
+    footer a {
+      color: #f1c40f;
+      text-decoration: none;
+    }
 
-        main h2 {
-            margin-bottom: 20px;
-        }
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-        /* Form Section */
-        form {
-            margin: 20px auto;
-            width: 100%;
-            max-width: 400px;
-            text-align: left;
-            background: #004080;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
+    /* Custom Form Styles */
+    .form-wrapper input, .form-wrapper select, .form-wrapper textarea {
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
 
-        form label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
+    .form-wrapper input[type="submit"] {
+      background-color: #f1c40f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+    }
 
-        form input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-        }
+    .form-wrapper input[type="submit"]:hover {
+      background-color: #dba800;
+    }
 
-        form button {
-            width: 100%;
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #00509e;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
+    .form-wrapper input:focus, .form-wrapper select:focus, .form-wrapper textarea:focus {
+      border-color: #f1c40f;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>StarGalaxy</h1>
-        <p>Your ultimate platform for earning rewards and advertising</p>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Earn & Advertise</a>
-        <a href="#">About Us</a>
-    </nav>
-    <main>
-        <h2>Complete Tasks</h2>
-        <form id="taskForm">
-            <label for="userName">Your Name:</label>
-            <input type="text" id="userName" placeholder="Enter your name" required>
-            
-            <label for="taskName">Task Name:</label>
-            <input type="text" id="taskName" placeholder="Enter task name" required>
-            
-            <button type="submit">Submit Task</button>
-        </form>
-        <p id="responseMessage" style="margin-top: 20px; font-weight: bold;"></p>
-    </main>
+  <div class="container">
+    <h1>Welcome to StarGalaxy</h1>
+    <h2>Your ultimate platform for earning rewards and advertising</h2>
+    <div class="form-wrapper">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfo5k4MuovhV00ANf0yVPAeJzB15h7Er-YgRbtK6RhvrgSFXw/viewform?embedded=true" width="640" height="811" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
     <footer>
-        <p>© 2024 StarGalaxy. All rights reserved.</p>
+      <p>Powered by <a href="#">StarGalaxy</a></p>
     </footer>
-
-    <script>
-        document.getElementById('taskForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const userName = document.getElementById('userName').value;
-            const taskName = document.getElementById('taskName').value;
-            const responseMessage = document.getElementById('responseMessage');
-
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzmvVAKjWQ6rjVYwSlG6MdtLT62YnRY9ILzmQ0JWEtvdGb1RdF8OEjJ9CIdmB8_Kw3a/exec', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ userName, taskName })
-                });
-
-                const result = await response.json();
-                if (result.success) {
-                    responseMessage.textContent = "Task submitted successfully!";
-                    responseMessage.style.color = "green";
-                } else {
-                    responseMessage.textContent = "Error submitting task: " + result.error;
-                    responseMessage.style.color = "red";
-                }
-            } catch (error) {
-                responseMessage.textContent = "Network error. Please try again.";
-                responseMessage.style.color = "red";
-            }
-        });
-    </script>
+  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
