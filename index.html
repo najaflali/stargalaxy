@@ -217,28 +217,7 @@
             }
         }
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particlesArray.forEach(particle => {
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-                ctx.fill();
-                particle.x += particle.dx;
-                particle.y += particle.dy;
-
-                if (particle.x < 0 || particle.x > canvas.width) particle.dx = -particle.dx;
-                if (particle.y < 0 || particle.y > canvas.height) particle.dy = -particle.dy;
-            });
-            requestAnimationFrame(animateParticles);
-        }
-
-        initParticles();
-        animateParticles();
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -302,4 +281,26 @@
     </div>
 </body>
 
+</html>
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.fill();
+                particle.x += particle.dx;
+                particle.y += particle.dy;
+
+                if (particle.x < 0 || particle.x > canvas.width) particle.dx = -particle.dx;
+                if (particle.y < 0 || particle.y > canvas.height) particle.dy = -particle.dy;
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+    </script>
+</body>
 </html>
