@@ -2,192 +2,173 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarGalaxy - Home</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGalaxy - Home</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Main Body Background */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #141e30, #243b55);
-      color: white;
-      text-align: center;
-    }
+        /* Main Body Background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #141e30, #243b55);
+            color: white;
+            text-align: center;
+        }
 
-    /* Header Section */
-    header {
-      background-color: #243b55;
-      padding: 20px 0;
-      color: #ffcc00;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
+        /* Header Section */
+        header {
+            background-color: #243b55;
+            padding: 20px 0;
+            color: #ffcc00;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    header h1 {
-      font-size: 48px;
-    }
+        header h1 {
+            font-size: 48px;
+        }
 
-    header h2 {
-      font-size: 24px;
-      color: #ddd;
-      margin: 10px 0;
-    }
+        header h2 {
+            font-size: 20px;
+            color: #ccc;
+            margin: 10px 0;
+        }
 
-    nav a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
-      transition: color 0.3s ease;
-    }
+        /* Biscuit-style Navigation Links */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
 
-    nav a:hover {
-      color: #fff;
-    }
+        nav a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #243b55;
+            background: linear-gradient(to right, #ffcc99, #ffe6b3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s ease;
+        }
 
-    /* Main Section */
-    main {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 204, 153, 0.5);
+        }
 
-    h3 {
-      font-size: 28px;
-      margin: 20px 0;
-      color: #ffc107;
-    }
+        /* Biscuit Header Section */
+        .biscuit-header {
+            font-size: 36px;
+            background: linear-gradient(to right, #3c6070, #516e7f);
+            color: #ffcc00;
+            padding: 20px;
+            border-radius: 30px;
+            margin: 30px auto;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
 
-    p {
-      font-size: 16px;
-      line-height: 1.8;
-      margin: 15px 0;
-    }
+        /* Horizontal Biscuit Section */
+        .horizontal-biscuits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto;
+        }
 
-    /* Biscuit Header */
-    .biscuit-header {
-      background: linear-gradient(to right, #3c6070, #516e7f);
-      color: #ffcc00;
-      font-size: 32px;
-      font-weight: bold;
-      margin: 20px auto;
-      padding: 15px 20px;
-      border-radius: 30px;
-      width: 80%;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
+        .biscuit {
+            background: linear-gradient(to bottom, #243b55, #1e2b40);
+            border: 2px solid #ffcc00;
+            color: #ffcc00;
+            font-size: 18px;
+            padding: 15px 30px;
+            border-radius: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    /* Horizontal Biscuit Section */
-    .horizontal-biscuits {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px auto;
-    }
+        .biscuit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 204, 0, 0.5);
+        }
 
-    .biscuit {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px solid #ffcc00;
-      color: #ffcc00;
-      font-size: 20px;
-      padding: 15px 30px;
-      border-radius: 30px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        /* Get Started Button */
+        .get-started {
+            margin: 30px auto;
+            padding: 15px 40px;
+            background-color: #ffcc00;
+            color: #243b55;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s ease;
+        }
 
-    .biscuit:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
-    }
+        .get-started:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5);
+        }
 
-    /* Buttons */
-    .btn {
-      background-color: #ffcc00;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background-color: #ffdd44;
-      transform: scale(1.05);
-    }
-
-    /* Footer Section */
-    footer {
-      background-color: #141e30;
-      color: #ddd;
-      padding: 10px 0;
-      font-size: 14px;
-      margin-top: 30px;
-    }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .biscuit-header {
-        font-size: 24px;
-        padding: 10px 15px;
-      }
-
-      .biscuit {
-        font-size: 16px;
-        padding: 10px 20px;
-      }
-    }
-  </style>
+        /* Footer Section */
+        footer {
+            background-color: #141e30;
+            color: #ddd;
+            padding: 10px 0;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Header Section -->
-  <header>
-    <h1>Welcome to StarGalaxy 🚀</h1>
-    <h2>Your Gateway to Rewards & Opportunities</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="earn.html">Earn Rewards</a>
-      <a href="advertise.html">Advertise Here</a>
-    </nav>
-  </header>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to StarGalaxy 🚀</h1>
+        <h2>Your Gateway to Rewards & Opportunities</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="earn.html">Earn Rewards</a>
+            <a href="advertise.html">Advertise Here</a>
+        </nav>
+    </header>
 
-  <!-- Main Section -->
-  <main>
-    <h3>Start Earning Cryptocurrency by Completing Simple Tasks!</h3>
-    <p>StarGalaxy allows users to earn by completing tasks such as following social media, watching ads, and completing simple engagement goals. Advertisers can also create ad campaigns easily.</p>
-    <div>
-      <a href="earn.html" class="btn">Start Earning Now</a>
-      <a href="advertise.html" class="btn">Run Your Campaigns</a>
-    </div>
-
-    <!-- Biscuit Header -->
+    <!-- Biscuit Header Section -->
     <div class="biscuit-header">🚀 Explore New Ways to Earn Rewards! 🌟</div>
 
     <!-- Horizontal Biscuit Section -->
     <div class="horizontal-biscuits">
-      <div class="biscuit">💰 Complete Tasks to Earn</div>
-      <div class="biscuit">📢 Advertise Your Campaign</div>
-      <div class="biscuit">🌟 Get Exclusive Rewards</div>
-      <div class="biscuit">🔗 Share & Grow</div>
+        <div class="biscuit">💰 Complete Tasks to Earn</div>
+        <div class="biscuit">📢 Advertise Your Campaign</div>
+        <div class="biscuit">🌟 Get Exclusive Rewards</div>
+        <div class="biscuit">🔗 Share & Grow</div>
     </div>
-  </main>
 
-  <!-- Footer Section -->
-  <footer>
-    &copy; 2024 StarGalaxy - All Rights Reserved
-  </footer>
+    <!-- Get Started Button -->
+    <button class="get-started">Get Started</button>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 StarGalaxy - All Rights Reserved
+    </footer>
 </body>
 
 </html>
+
 
 
