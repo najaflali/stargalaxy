@@ -5,165 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StarGalaxy</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            background-color: #001f3f; /* Dark navy blue */
+            color: white;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #003366; /* Deep navy */
+            padding: 20px;
             text-align: center;
         }
-        header {
-            margin-bottom: 30px;
-        }
+
         header h1 {
-            font-size: 48px;
-            color: #ff5722;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            margin: 0;
+            font-size: 2.5em;
         }
-        .nav-container {
+
+        header p {
+            margin: 5px 0 20px;
+            font-size: 1.2em;
+        }
+
+        /* Navigation */
+        nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+            background-color: #00509e; /* Light navy */
+            padding: 15px 0;
         }
-        .nav-link {
-            background-color: #ff5722;
-            color: #ffffff;
-            padding: 20px;
-            font-size: 20px;
-            border-radius: 8px;
+
+        nav a {
             text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.1em;
+            margin: 0 10px;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 8px;
         }
-        .nav-link:hover {
-            background-color: #e64a19;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+
+        nav a:hover {
+            background-color: #00509e;
         }
+
+        /* Main Content Section */
         main {
             padding: 20px;
-            max-width: 600px;
-            margin-top: 40px;
-            background-color: #292929;
-            border-radius: 8px;
+            text-align: center;
         }
+
         main h2 {
-            font-size: 36px;
             margin-bottom: 20px;
         }
-        .task-form {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #3b3b3b;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .task-form input, .task-form button {
+
+        /* Form Section */
+        form {
+            margin: 20px auto;
             width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
+            max-width: 400px;
+            text-align: left;
+            background: #004080;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-        .task-form button {
-            background-color: #ff5722;
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            background-color: #007bff;
             color: white;
+            padding: 10px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .task-form button:hover {
-            background-color: #e64a19;
+
+        form button:hover {
+            background-color: #00509e;
         }
+
+        /* Footer */
         footer {
-            margin-top: 30px;
+            background-color: #003366;
+            color: white;
             text-align: center;
             padding: 10px;
-            background-color: #1f1f1f;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .message {
-            margin-top: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>StarGalaxy</h1>
+        <p>Your ultimate platform for earning rewards and advertising</p>
     </header>
-
-    <div class="nav-container">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Earn & Advertise</a>
-        <a href="#" class="nav-link">About Us</a>
-    </div>
-
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Earn & Advertise</a>
+        <a href="#">About Us</a>
+    </nav>
     <main>
-        <h2>Welcome to StarGalaxy</h2>
-        <p>Your ultimate platform for earning rewards and advertising. Explore new opportunities and get started now!</p>
-
-        <div class="task-form">
-            <h3>Submit a Task</h3>
-            <input type="text" id="name" placeholder="Your Name" required />
-            <input type="text" id="task" placeholder="Task Link" required />
-            <button id="submitTask">Submit</button>
-            <p id="responseMessage" class="message"></p>
-        </div>
+        <h2>Complete Tasks</h2>
+        <form id="taskForm">
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" placeholder="Enter your name" required>
+            
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" placeholder="Enter task name" required>
+            
+            <button type="submit">Submit Task</button>
+        </form>
+        <p id="responseMessage" style="margin-top: 20px; font-weight: bold;"></p>
     </main>
-
     <footer>
-        &copy; 2024 StarGalaxy. All rights reserved.
+        <p>© 2024 StarGalaxy. All rights reserved.</p>
     </footer>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwvMnh4hlOz7AZc91hBkxSWTIPsCcvIbrTFQE87ppf60ct2eAwuktbHnsUJqVGwAQC4/exec';
-
-        document.getElementById('submitTask').addEventListener('click', () => {
-            const name = document.getElementById('name').value.trim();
-            const task = document.getElementById('task').value.trim();
+        document.getElementById('taskForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userName = document.getElementById('userName').value;
+            const taskName = document.getElementById('taskName').value;
             const responseMessage = document.getElementById('responseMessage');
-            
-            if (!name || !task) {
-                responseMessage.textContent = 'Please fill in all fields.';
-                responseMessage.style.color = 'red';
-                return;
-            }
 
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('task', task);
-
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => {
-                    if (response.ok) {
-                        responseMessage.textContent = 'Task submitted successfully!';
-                        responseMessage.style.color = 'green';
-                        document.getElementById('name').value = '';
-                        document.getElementById('task').value = '';
-                    } else {
-                        responseMessage.textContent = 'Error submitting task.';
-                        responseMessage.style.color = 'red';
-                    }
-                })
-                .catch(error => {
-                    responseMessage.textContent = 'Network error. Please try again.';
-                    responseMessage.style.color = 'red';
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzmvVAKjWQ6rjVYwSlG6MdtLT62YnRY9ILzmQ0JWEtvdGb1RdF8OEjJ9CIdmB8_Kw3a/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userName, taskName })
                 });
+
+                const result = await response.json();
+                if (result.success) {
+                    responseMessage.textContent = "Task submitted successfully!";
+                    responseMessage.style.color = "green";
+                } else {
+                    responseMessage.textContent = "Error submitting task: " + result.error;
+                    responseMessage.style.color = "red";
+                }
+            } catch (error) {
+                responseMessage.textContent = "Network error. Please try again.";
+                responseMessage.style.color = "red";
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
