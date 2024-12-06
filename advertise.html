@@ -1,161 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advertise with StarGalaxy</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #141e30, #243b55);
-            color: white;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarGalaxy - Home</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Header Styles */
-        .header {
-            background-color: #243b55;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    /* Main Body Background */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      text-align: center;
+    }
 
-        .header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #ffcc00;
-        }
+    /* Header Section */
+    header {
+      background-color: #243b55;
+      padding: 20px 0;
+      color: #ffcc00;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+    header h1 {
+      font-size: 48px;
+    }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: background-color 0.3s ease;
-        }
+    header h2 {
+      font-size: 24px;
+      color: #ddd;
+      margin: 10px 0;
+    }
 
-        .nav-links a:hover {
-            background-color: #ffcc00;
-            color: black;
-            border-radius: 5px;
-        }
+    nav a {
+      color: #ffcc00;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
 
-        .container {
-            text-align: center;
-            padding: 50px 20px;
-        }
+    nav a:hover {
+      color: #fff;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #ffcc00;
-        }
+    /* Main Section */
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
+    h3 {
+      font-size: 28px;
+      margin: 20px 0;
+      color: #ffc107;
+    }
 
-        .pricing-table {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 15px 0;
+    }
 
-        .pricing {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid #ffcc00;
-            border-radius: 10px;
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
+    /* Biscuit Header */
+    .biscuit-header {
+      background: linear-gradient(to right, #3c6070, #516e7f);
+      color: #ffcc00;
+      font-size: 32px;
+      font-weight: bold;
+      margin: 20px auto;
+      padding: 15px 20px;
+      border-radius: 30px;
+      width: 80%;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
 
-        .pricing h3 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            color: #ff8800;
-        }
+    /* Horizontal Biscuit Section */
+    .horizontal-biscuits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px auto;
+    }
 
-        .pricing p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
+    .biscuit {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ffcc00;
+      color: #ffcc00;
+      font-size: 20px;
+      padding: 15px 30px;
+      border-radius: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .cta {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: #ff8800;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .biscuit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 204, 0, 0.5);
+    }
 
-        .cta:hover {
-            background-color: #ffcc00;
-        }
-    </style>
+    /* Buttons */
+    .btn {
+      background-color: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffdd44;
+      transform: scale(1.05);
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #141e30;
+      color: #ddd;
+      padding: 10px 0;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .biscuit-header {
+        font-size: 24px;
+        padding: 10px 15px;
+      }
+
+      .biscuit {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <h1>StarGalaxy</h1>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="earn.html">Earn</a>
-            <a href="advertise.html">Advertise</a>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Advertise with StarGalaxy</h1>
-        <p>Reach your audience effectively by promoting your content on StarGalaxy. Choose a plan below to start your campaign!</p>
-        <div class="pricing-table">
-            <!-- Pricing 1 -->
-            <div class="pricing">
-                <h3>Impressions</h3>
-                <p>$0.10 for 100 views</p>
-                <button class="cta">Start Campaign</button>
-            </div>
-            <!-- Pricing 2 -->
-            <div class="pricing">
-                <h3>Likes</h3>
-                <p>$0.15 for 100 likes</p>
-                <button class="cta">Start Campaign</button>
-            </div>
-            <!-- Pricing 3 -->
-            <div class="pricing">
-                <h3>Comments</h3>
-                <p>$0.12 for 100 comments</p>
-                <button class="cta">Start Campaign</button>
-            </div>
-            <!-- Pricing 4 -->
-            <div class="pricing">
-                <h3>Follows</h3>
-                <p>$0.20 for 100 followers</p>
-                <button class="cta">Start Campaign</button>
-            </div>
-            <!-- Pricing 5 -->
-            <div class="pricing">
-                <h3>Subscribers</h3>
-                <p>$0.25 for 100 subscribers</p>
-                <button class="cta">Start Campaign</button>
-            </div>
-        </div>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>Welcome to StarGalaxy 🚀</h1>
+    <h2>Your Gateway to Rewards & Opportunities</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="earn.html">Earn Rewards</a>
+      <a href="advertise.html">Advertise Here</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <h3>Start Earning Cryptocurrency by Completing Simple Tasks!</h3>
+    <p>StarGalaxy allows users to earn by completing tasks such as following social media, watching ads, and completing simple engagement goals. Advertisers can also create ad campaigns easily.</p>
+    <div>
+      <a href="earn.html" class="btn">Start Earning Now</a>
+      <a href="advertise.html" class="btn">Run Your Campaigns</a>
     </div>
+
+    <!-- Biscuit Header -->
+    <div class="biscuit-header">🚀 Explore New Ways to Earn Rewards! 🌟</div>
+
+    <!-- Horizontal Biscuit Section -->
+    <div class="horizontal-biscuits">
+      <div class="biscuit">💰 Complete Tasks to Earn</div>
+      <div class="biscuit">📢 Advertise Your Campaign</div>
+      <div class="biscuit">🌟 Get Exclusive Rewards</div>
+      <div class="biscuit">🔗 Share & Grow</div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    &copy; 2024 StarGalaxy - All Rights Reserved
+  </footer>
 </body>
+
 </html>
+
