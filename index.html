@@ -3,70 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarGalaxy - Home</title>
+    <title>StarGalaxy</title>
     <style>
-        body {
+        /* Reset */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
+            background-color: #f4f6f8;
+            color: #333;
         }
 
+        /* Header */
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav a {
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        nav ul li a:hover {
+            background-color: #3498db;
         }
 
-        main {
-            padding: 50px 20px;
+        /* Collapse Menu */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
         }
 
-        h1 {
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: #2c3e50;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .dropdown-menu li {
+            display: block;
+            padding: 10px;
+        }
+
+        .dropdown-menu li a {
+            color: white;
+            display: block;
+            font-size: 16px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #34495e;
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            nav ul.show {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
             font-size: 48px;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
 
-        p {
+        .hero p {
+            font-size: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
             font-size: 18px;
-            margin: 10px 0;
+            transition: background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        .btn:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .footer-section {
+            display: inline-block;
+            margin: 15px;
+            padding: 20px;
+            background-color: rgba(231, 76, 60, 0.1);
+            border-radius: 8px;
+        }
+
+        .footer-section:hover {
+            background-color: rgba(231, 76, 60, 0.2);
+        }
+
+        .footer-section h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            display: block;
+            margin-top: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #e74c3c;
+            border-radius: 5px;
+        }
+
+        .footer-section a:hover {
+            background-color: #c0392b;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuIcon = document.querySelector(".menu-icon");
+            const dropdownMenu = document.querySelector("nav ul");
+
+            menuIcon.addEventListener("click", () => {
+                dropdownMenu.classList.toggle("show");
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
+        <div class="logo">StarGalaxy</div>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="earn.html">Earn</a>
-            <a href="advertise.html">Advertise</a>
+            <div class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="earn.html">Earn</a></li>
+                <li><a href="advertise.html">Advertise</a></li>
+            </ul>
         </nav>
     </header>
     <main>
-        <h1>Welcome to StarGalaxy</h1>
-        <div class="container">
-            <p>Your gateway to earning rewards and running advertising campaigns.</p>
-            <p>Explore our features and start your journey with us!</p>
-        </div>
+        <section class="hero">
+            <h1>Welcome to StarGalaxy!</h1>
+            <p>Earn rewards or advertise your content today.</p>
+            <a href="earn.html" class="btn">Get Started</a>
+        </section>
     </main>
+    <footer>
+        <div class="footer-section">
+            <h3>Complete Tasks</h3>
+            <a href="earn.html">Learn More</a>
+        </div>
+        <div class="footer-section">
+            <h3>Run Ads</h3>
+            <a href="advertise.html">Learn More</a>
+        </div>
+    </footer>
 </body>
 </html>
+
 
