@@ -13,155 +13,109 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            overflow-x: hidden;
         }
 
         /* Header */
         header {
-            background-color: #2c3e50;
-            padding: 10px 20px;
+            background-color: #1c2833;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
-            color: white;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             text-transform: uppercase;
+            color: #f39c12;
+            text-shadow: 2px 2px 8px rgba(255, 223, 0, 0.5);
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
-        nav {
-            position: relative;
+        .logo:hover {
+            color: #f1c40f;
+            text-shadow: 0 0 12px rgba(255, 223, 0, 1);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         nav ul li {
-            display: inline;
+            display: inline-block;
         }
 
         nav ul li a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             font-size: 18px;
-            padding: 5px 10px;
+            padding: 10px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
-            background-color: #3498db;
-        }
-
-        /* Collapse Menu */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-        }
-
-        .menu-icon div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 40px;
-            right: 0;
-            background-color: #2c3e50;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-        }
-
-        .dropdown-menu li {
-            display: block;
-            padding: 10px;
-        }
-
-        .dropdown-menu li a {
-            color: white;
-            display: block;
-            font-size: 16px;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #34495e;
-        }
-
-        @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            nav ul.show {
-                display: flex;
-                flex-direction: column;
-            }
+            background: #f39c12;
+            transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #8e44ad, #3498db);
             color: white;
-            border-radius: 10px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 50px;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
+            margin-bottom: 30px;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 20px;
             padding: 15px 30px;
-            background-color: #27ae60;
+            font-size: 18px;
             color: white;
+            background: #e74c3c;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #2ecc71;
+            background: #c0392b;
+            transform: scale(1.05);
         }
 
         .btn::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: width 0.4s, height 0.4s;
         }
 
         .btn:hover::after {
@@ -171,62 +125,52 @@
 
         /* Footer */
         footer {
+            background: #1c2833;
             text-align: center;
             padding: 40px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .footer-section {
             display: inline-block;
             margin: 15px;
             padding: 20px;
-            background-color: rgba(231, 76, 60, 0.1);
-            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .footer-section:hover {
-            background-color: rgba(231, 76, 60, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
 
         .footer-section h3 {
-            color: #e74c3c;
             margin-bottom: 10px;
+            font-size: 18px;
+            color: #f39c12;
         }
 
         .footer-section a {
-            display: block;
+            display: inline-block;
             margin-top: 10px;
             color: white;
             text-decoration: none;
-            padding: 10px;
-            background-color: #e74c3c;
+            padding: 10px 15px;
+            background-color: #e67e22;
             border-radius: 5px;
+            transition: background 0.3s;
         }
 
         .footer-section a:hover {
-            background-color: #c0392b;
+            background-color: #d35400;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuIcon = document.querySelector(".menu-icon");
-            const dropdownMenu = document.querySelector("nav ul");
-
-            menuIcon.addEventListener("click", () => {
-                dropdownMenu.classList.toggle("show");
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
         <div class="logo">StarGalaxy</div>
         <nav>
-            <div class="menu-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="earn.html">Earn</a></li>
@@ -237,7 +181,7 @@
     <main>
         <section class="hero">
             <h1>Welcome to StarGalaxy!</h1>
-            <p>Earn rewards or advertise your content today.</p>
+            <p>Your ultimate platform for earning and advertising.</p>
             <a href="earn.html" class="btn">Get Started</a>
         </section>
     </main>
@@ -253,5 +197,6 @@
     </footer>
 </body>
 </html>
+
 
 
