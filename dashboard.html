@@ -1,101 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarGalaxy Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-    }
-    .menu {
-      background-color: #1e1e2f;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .menu a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .container {
-      padding: 20px;
-    }
-    .task {
-      margin: 10px 0;
-      padding: 15px;
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .task button {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .task button:hover {
-      background-color: #45a049;
-    }
-    .message {
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 3px;
-    }
-    .success {
-      background-color: #d4edda;
-      color: #155724;
-    }
-    .error {
-      background-color: #f8d7da;
-      color: #721c24;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarGalaxy Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .task {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="menu">
-    <span>StarGalaxy Menu</span>
+    <header>
+        <h1>StarGalaxy Dashboard</h1>
+    </header>
     <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="earn.html">Earn</a>
-      <a href="advertise.html">Advertise</a>
-      <a href="settings.html">Settings</a>
-      <a href="index.html">Logout</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="earn.html">Earn</a>
+        <a href="advertise.html">Advertise</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Logout</a>
     </nav>
-  </div>
-  <div class="container">
-    <h1>Welcome to StarGalaxy!</h1>
-    <div class="task">
-      <h3>Task: Watch a YouTube Video</h3>
-      <p>Submit proof after watching the video.</p>
-      <button onclick="submitTask('Watch YouTube Video', 'Proof Submitted')">Complete Task</button>
+    <div class="container">
+        <h2>Welcome to StarGalaxy!</h2>
+        <p>Task: Watch a YouTube Video</p>
+        <p>Submit proof after watching the video.</p>
+        <div class="task">
+            <label for="proof">Proof (e.g., video link or screenshot URL):</label><br>
+            <input type="text" id="proof" placeholder="Enter proof here">
+            <button onclick="submitTask('Watch a YouTube Video', document.getElementById('proof').value)">Complete Task</button>
+        </div>
+        <p id="feedback" style="color: green;"></p>
+    </div>
+    <footer>
+        &copy; 2024 StarGalaxy. All Rights Reserved.
+    </footer>
+    <script>
+        async function submitTask(task, proof) {
+            const apiUrl = 'https://script.google.com/macros/s/AKfycbwsxVQ8UojtSqLNNrOtwGHLgHy87V4QlvUvzmgGW1Z1hc7Rnp0e020_paVOmLXdHaUJkA/exec';
 
-<script>
-  async function submitTask(task, proof) {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRjkXA-M5Z9Ng-Klt4IGuLlAAR0CMVGdzaLPwswTZyuYb0R9niYcdLLWk0SK7_MG2XZA/exec'; // Replace with your URL
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ task, proof }),
+                });
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task: task, proof: proof }),
-      });
-
-      const result = await response.json();
-      alert(result.message);
-    } catch (error) {
-      alert('Error: ' + error.message);
-    }
-  }
-</script>
-
+                if (response.ok) {
+                    const result = await response.json();
+                    document.getElementById('feedback').textContent = result.message;
+                } else {
+                    throw new Error('Failed to fetch');
+                }
+            } catch (error) {
+                document.getElementById('feedback').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
 </body>
 </html>
