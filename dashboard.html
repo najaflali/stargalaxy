@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarGalaxy Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .menu {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .task {
+      margin: 10px 0;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .task button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .task button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 3px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <span>StarGalaxy Menu</span>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="earn.html">Earn</a>
+      <a href="advertise.html">Advertise</a>
+      <a href="settings.html">Settings</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </div>
+  <div class="container">
+    <h1>Welcome to StarGalaxy!</h1>
+    <div class="task">
+      <h3>Task: Watch a YouTube Video</h3>
+      <p>Submit proof after watching the video.</p>
+      <button onclick="submitTask('Watch YouTube Video', 'Proof Submitted')">Complete Task</button>
+
+<script>
+  async function submitTask(task, proof) {
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwRjkXA-M5Z9Ng-Klt4IGuLlAAR0CMVGdzaLPwswTZyuYb0R9niYcdLLWk0SK7_MG2XZA/exec'; // Replace with your URL
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task: task, proof: proof }),
+      });
+
+      const result = await response.json();
+      alert(result.message);
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+  }
+</script>
+
+</body>
+</html>
