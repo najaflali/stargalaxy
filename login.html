@@ -7,65 +7,54 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #2c3e50;
-            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f4f4f4;
         }
-
-        .login-container {
-            background: #34495e;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .login-box {
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
         }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #f39c12;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
         input {
             margin: 10px 0;
             padding: 10px;
-            border: none;
+            width: 100%;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
-            margin: 10px 0;
-            padding: 10px;
-            border: none;
-            background-color: #f39c12;
+            background: #4CAF50;
             color: white;
-            border-radius: 5px;
+            padding: 10px 15px;
+            border: none;
             cursor: pointer;
-            transition: background 0.3s ease;
+            border-radius: 5px;
+            width: 100%;
         }
-
         button:hover {
-            background: #d35400;
+            background: #45a049;
         }
-
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login to StarGalaxy</h1>
-        <form action="dashboard.html" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <div class="login-box">
+        <h2>Login to StarGalaxy</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
     </div>
+    <script>
+        function login() {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
 </body>
 </html>
+
